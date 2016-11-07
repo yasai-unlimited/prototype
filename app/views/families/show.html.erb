@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @family.name %>
+</p>
+
+<p>
+  <strong>Friend open:</strong>
+  <%= @family.friend_open %>
+</p>
+
+<p>
+  <strong>General open:</strong>
+  <%= @family.general_open %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @family.icon %>
+</p>
+
+<p>
+  <strong>Coverimage:</strong>
+  <%= @family.coverimage %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @family.description %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @family.title %>
+</p>
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>
