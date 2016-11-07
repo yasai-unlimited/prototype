@@ -3,6 +3,14 @@
     Logged in as <strong><%= current_user.email %></strong>.
     <%= link_to "Settings", edit_user_registration_path, :class => "navbar-link" %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "navbar-link" %>
+
+    <% if !current_user.has_family? %>
+        <%= form_for(current_user, :url => { :controller => :families }, html: { method: :post }) do |f| %>
+          <%= button_tag :type => "submit", id: "followBtn", :class =>"btn btn-default btn-s-md follow" do %>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 家族テーブル作成
+            <% end %>
+        <% end %>
+    <% end %>
 <% else %>
     <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
