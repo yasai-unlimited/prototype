@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  friend_open: false
+  general_open: false
+  icon: MyText
+  coverimage: MyText
+  description: MyText
+  title: MyString
+
+two:
+  name: MyString
+  friend_open: false
+  general_open: false
+  icon: MyText
+  coverimage: MyText
+  description: MyText
+  title: MyString
