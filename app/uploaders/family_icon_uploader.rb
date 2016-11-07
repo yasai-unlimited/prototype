@@ -3,8 +3,11 @@
 class FamilyIconUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+
+  process :convert => 'jpg'
+
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -32,20 +35,19 @@ class FamilyIconUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fit => [480, 360]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
-
+  def filename
+    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+  end
 end
