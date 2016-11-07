@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106230858) do
+ActiveRecord::Schema.define(version: 20161107140807) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20161106230858) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
+
+  create_table "family_relationships", force: :cascade do |t|
+    t.integer  "follow_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "family_relationships", ["follow_id", "follower_id"], name: "index_family_relationships_on_follow_id_and_follower_id", unique: true
+  add_index "family_relationships", ["follow_id"], name: "index_family_relationships_on_follow_id"
+  add_index "family_relationships", ["follower_id"], name: "index_family_relationships_on_follower_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
