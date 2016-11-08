@@ -28,4 +28,7 @@ class Family < ActiveRecord::Base
     following_families.include?(another_family)
   end
 
+  def has_family_relationship?(another_family)
+    following?(another_family) && another_family.following?(self)
+  end
 end
