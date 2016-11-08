@@ -1,39 +1,31 @@
 <p id="notice"><%= notice %></p>
+<%= render('info') %>
+<%= render('follow_form') %>
+<% if current_family == @family %>
+    <%= render('contents') %>
+    <%= link_to 'Edit', edit_family_path(@family) %> |
+    <%= link_to 'Back', families_path %>
+<% else %>
+    <% if @family.general_open %>
+        <%= render('contents') %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @family.name %>
-</p>
-
-<p>
-  <strong>Friend open:</strong>
-  <%= @family.friend_open %>
-</p>
-
-<p>
-  <strong>General open:</strong>
-  <%= @family.general_open %>
-</p>
-
-<p>
-  <strong>Icon:</strong>
-  <%= image_tag @family.icon.thumb.url %>
-</p>
-
-<p>
-  <strong>Coverimage:</strong>
-  <%= image_tag @family.coverimage.thumb.url %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @family.description %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @family.title %>
-</p>
-
-<%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>
+    <% elsif @family.friend_open %>
+        <%= current_family.has_family_relationship?(@family) %>
+        <% if user_signed_in? && current_user.has_family? && current_family.has_family_relationship?(@family) %>
+            <%= render('contents') %>
+            <div id="familyFollowCondition">
+              <%= render('follow_form') %>
+            </div>
+        <% end %>
+    <% else %>
+        <% unless @family.general_open %>
+            <% if @family.friend_open %>
+                <p>友達限定です</p>
+            <% else %>
+                <p>公開されていないユーザーです。</p>
+            <% end %>
+        <% end %>
+        <p>ホームに戻りましょう！リダイレクトは後で実装</p>
+        <%= link_to "Home", root_path %>
+    <% end %>
+<% end %>
