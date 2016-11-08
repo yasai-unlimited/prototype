@@ -9,9 +9,13 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy"
   end
 
-  resources :families
-  get 'family_relationships#create'
-  get 'family_relationships#destroy'
+  resources :families do
+    member do
+      get :followings
+      get :followers
+    end
+  end
+  resources :family_relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

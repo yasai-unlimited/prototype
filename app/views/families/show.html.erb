@@ -35,5 +35,11 @@
   <%= @family.title %>
 </p>
 
+<p><%= current_family.id %></p>
+
+<div id="familyFollowCondition">
+  <%= render('follow_form') %>
+</div>
+
 <%= link_to 'Edit', edit_family_path(@family) %> |
 <%= link_to 'Back', families_path %>

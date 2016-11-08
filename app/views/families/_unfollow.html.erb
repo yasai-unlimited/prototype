@@ -1,0 +1,7 @@
+<%= form_for(current_family.following_relationships.find_by(follower_id: @family.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+    <%= button_tag :type => :submit, id: 'followBtn', :class => 'unfollow' do %>
+        友達
+    <% end %>
+<% end %>
