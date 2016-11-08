@@ -16,6 +16,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore all uploaded files by carrierwave imageuploader
+/public/uploads/*
+
 # Ignore Byebug command history file.
 .byebug_history
 

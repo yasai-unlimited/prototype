@@ -1,0 +1,6 @@
+<%= form_for(current_family.following_relationships.build, remote: true) do |f| %>
+    <div><%= hidden_field_tag :follower_id, @family.id %></div>
+    <%= button_tag :type => :submit, :id => 'followBtn', :class => 'follow' do %>
+        友達申請
+    <% end %>
+<% end %>

@@ -1,0 +1,45 @@
+<%= form_for(@family) do |f| %>
+  <% if @family.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@family.errors.count, "error") %> prohibited this family from being saved:</h2>
+
+      <ul>
+      <% @family.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :friend_open %><br>
+    <%= f.check_box :friend_open %>
+  </div>
+  <div class="field">
+    <%= f.label :general_open %><br>
+    <%= f.check_box :general_open %>
+  </div>
+  <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.file_field :icon %>
+  </div>
+  <div class="field">
+    <%= f.label :coverimage %><br>
+    <%= f.file_field :coverimage %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
