@@ -15,7 +15,7 @@ class FamiliesController < ApplicationController
   # GET /families/new
   def new
     @family = Family.new
-    @album = Album.create
+    @album = Album.create(family_id: @family.id)
   end
 
   # GET /families/1/edit
