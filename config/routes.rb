@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'static_pages#home'
-  get 'timeline', :to => 'static_pages#timeline'
   devise_for :users, :controllers => {
       :registrations => 'users/registrations',
       :sessions => 'users/sessions'
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :timeline
+      get :calendar
     end
   end
 

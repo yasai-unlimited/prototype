@@ -5,6 +5,12 @@
 
 <%# show family own posts if family visiting own family_page %>
 <% if current_family == @family %>
+    <nav>
+      <ul>
+        <li><%= link_to 'TL', timeline_family_path %></li>
+        <li><%= link_to 'カレンダー', calendar_family_path %></li>
+      </ul>
+    </nav>
     <%= render('contents') %>
     <%= link_to 'Edit', edit_family_path(@family) %> |
     <%= link_to 'Back', families_path %>

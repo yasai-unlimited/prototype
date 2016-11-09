@@ -2,7 +2,8 @@
   <ul>
     <% if user_signed_in? && current_user.has_family? %>
       <li><%= link_to '家族', families_path(current_family) %></li>
-      <li><%= link_to 'TL', timeline_path %></li>
+      <li><%= link_to 'TL', timeline_family_path(current_family) %></li>
+      <li><%= link_to 'カレンダー', calendar_family_path(current_family) %></li>
   <% end %>
   </ul>
 </nav>
