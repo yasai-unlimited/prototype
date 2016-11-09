@@ -15,6 +15,7 @@ class Family < ActiveRecord::Base
   has_many :follower_families, through: :follower_relationships, source: :follow
 
   has_one :album, dependent: :destroy, foreign_key: 'family_id'
+  has_many :pictures, dependent: :destroy, foreign_key: 'family_id', through: :album
 
   def follow(another_family)
     following_relationships.find_or_create_by(follower_id: another_family.id)

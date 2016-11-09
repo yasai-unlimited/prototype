@@ -10,6 +10,17 @@
     </tr>
   </thead>
 
+  <p>
+    <%= @families.each do |family| %>
+      <% unless family.album.nil? %>
+        <%= family.album.id %>
+        <br>
+      <% else %>
+      <p>hoge</p>
+      <% end %>
+    <% end %>
+  </p>
+
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>

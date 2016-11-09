@@ -1,10 +1,12 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: [:index]
 
   # GET /pictures
   # GET /pictures.json
   def index
     @pictures = Picture.all
+    # @pictures = @families.album.picuture.all
   end
 
   # GET /pictures/1
@@ -71,5 +73,9 @@ class PicturesController < ApplicationController
     def picture_params
       # params.require(:picture).permit(:date)
       params.require(:picture).permit(:date, :image, :image_cache, :remove_image)
+    end
+
+    def set_family
+      @families = Family.all
     end
 end
