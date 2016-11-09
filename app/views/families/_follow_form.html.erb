@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+    <% if current_user.has_family? %>
+        <% if current_family != @family %>
+            <div id="familyFollowCondition">
+              <% if current_family.following?(@family) %>
+                  <%= render 'unfollow' %>
+              <% else %>
+                  <%= render 'follow' %>
+              <% end %>
+            </div>
+        <% end %>
+    <% else %>
+        <div><%= link_to 'ホーム画面で家族グループを作ろう！', root_path %></div>
+    <% end %>
+<% else %>
+    <div class="followBtn">友達申請</div>
+<% end %>
