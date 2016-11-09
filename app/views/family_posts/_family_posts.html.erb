@@ -1,0 +1,10 @@
+<li id="familyPost-<%= family_post.id %>">
+  <span class="user"><%= link_to family_post.user.name, family_post.user %></span>
+  <span class="content"><%= family_post.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(family_post.created_at) %> ago.
+    <% if current_family == family_post.family %>
+      <%= link_to "delete", family_post, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>

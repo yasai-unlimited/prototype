@@ -4,8 +4,8 @@
       <%= f.text_area :content, placeholder: "投稿するテキストを入力できます" %>
     </div>
     <div class="form-group">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+      <%= f.label :images %>
+      <%= f.file_field :images, multiple: true %>
     </div>
     <div class="field">
       <%= f.hidden_field :family_id, value: current_family.id %>

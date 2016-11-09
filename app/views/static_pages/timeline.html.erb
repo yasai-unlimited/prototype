@@ -1,26 +1,50 @@
 <% if user_signed_in? %>
-  <div style="height: 40px; background: #666666; position: relative;">
-    <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
-      +
-    </div>
-  </div>
+    <% if current_user.has_family? %>
+      <div style="height: 40px; background: #666666; position: relative;">
+        <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
+          +
+        </div>
+      </div>
+      <div id="familyPostModal">
+        <%= render('shared/family_post_form') %>
+      </div>
+    <% end %>
 
-  <nav>
-    <ul id="friendGeneralSwitchTabs">
-      <li id="friendSelectBtn">友達 | </li>
-      <li id="generalSelectBtn">一般</li>
-    </ul>
-  </nav>
+    <nav>
+      <ul id="friendGeneralSwitchTabs">
+        <li id="friendSelectBtn">友達 | </li>
+        <li id="generalSelectBtn">一般</li>
+      </ul>
+    </nav>
 
-  <div id="friendOrGeneralContents">
-    <div id="friendContents">
-      <p>aaaa</p>
-    </div>
+    <div id="friendOrGeneralContents">
+      <div id="friendContents">
+        <p>aaaa</p>
+        <% if @family_posts %>
+          <div>
+            <% @family_posts.each do |p| %>
+              <div>
+                <%= p.family_post_images %>
 
-    <div id="generalContents">
-      <p>bbbb</p>
+                <div><%= p.content %></div>
+
+                <% if p.family_post_images %>
+                  </div>
+                    <% p.family_post_images.each do |i| %>
+                      <%= image_tag i.image.thumb.url %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="generalContents">
+        <p>bbbb</p>
+      </div>
     </div>
-  </div>
 
 <% else %>
     <p>ログインしてください。</p>
