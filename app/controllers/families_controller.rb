@@ -68,10 +68,6 @@ class FamiliesController < ApplicationController
     @family_posts = my_family.family_posts.order(created_at: :desc)
   end
 
-  def calendar
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_family

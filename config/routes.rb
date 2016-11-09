@@ -9,16 +9,15 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy"
   end
 
-  resources :families, shallow: true do
+  resources :families do
+    resource :calendar, only: [:show] do
+      get "calendar_date", :path => '/:year:month:day', :to => 'calendars#date', :constraints => { :year => /[1-9][0-9]{3}/, :month => /[01][0-9]/, :day => /[0-3][0-9]/ }
+    end
+
     member do
       get :followings
       get :followers
       get :timeline
-      resource :calendar, only: [:show] do
-        member do
-          get '/test/:year-:month-:day' => 'calendars#date', :constraints => { :year => /[1-9][0-9]{3}/, :month => /[01][0-9]/, :day => /[1-3][0-9]/ }
-        end
-      end
     end
   end
 
