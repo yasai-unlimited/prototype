@@ -15,7 +15,6 @@ class FamiliesController < ApplicationController
   # GET /families/new
   def new
     @family = Family.new
-    @album = Album.create(family_id: @family.id)
   end
 
   # GET /families/1/edit
@@ -29,6 +28,7 @@ class FamiliesController < ApplicationController
 
     respond_to do |format|
       if @family.save
+        @album = @family.album.create(family_id: @family.id)
         current_user.update(family_id: @family.id)
         format.html { redirect_to @family, notice: 'Family was successfully created.' }
         format.json { render :show, status: :created, location: @family }
