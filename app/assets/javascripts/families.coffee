@@ -10,3 +10,4 @@ $ ->
       if $('#followBtn').hasClass('unfollow')
         $(this).text("友達")
   )
+  $('#calendar').fullCalendar({})
