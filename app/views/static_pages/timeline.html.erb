@@ -10,25 +10,22 @@
       </div>
     <% end %>
 
-    <nav>
-      <ul id="friendGeneralSwitchTabs">
-        <li id="friendSelectBtn">友達 | </li>
-        <li id="generalSelectBtn">一般</li>
-      </ul>
-    </nav>
+    <!--<nav>-->
+      <!--<ul id="friendGeneralSwitchTabs">-->
+        <!--<li id="friendSelectBtn">友達 | </li>-->
+        <!--<li id="generalSelectBtn">一般</li>-->
+      <!--</ul>-->
+    <!--</nav>-->
 
     <div id="friendOrGeneralContents">
+      <h2>Friend</h2>
       <div id="friendContents">
-        <p>aaaa</p>
         <% if @family_posts %>
           <div>
             <% @family_posts.each do |p| %>
               <div>
-                <%= p.family_post_images %>
-
                 <div><%= p.content %></div>
-
-                <% if p.family_post_images %>
+                <% if p.family_post_images.present? %>
                   </div>
                     <% p.family_post_images.each do |i| %>
                       <%= image_tag i.image.thumb.url %>
@@ -42,7 +39,7 @@
       </div>
 
       <div id="generalContents">
-        <p>bbbb</p>
+        <h2>General</h2>
       </div>
     </div>
 

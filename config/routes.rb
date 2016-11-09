@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get :followers
     end
   end
+
   resources :family_relationships, only: [:create, :destroy]
+
   resources :family_posts, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

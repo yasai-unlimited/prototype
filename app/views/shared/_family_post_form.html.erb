@@ -5,7 +5,7 @@
     </div>
     <div class="form-group">
       <%= f.label :images %>
-      <%= f.file_field :images, multiple: true %>
+      <%= f.file_field :images, :name => 'images[]', multiple: true %>
     </div>
     <div class="field">
       <%= f.hidden_field :family_id, value: current_family.id %>

@@ -1,13 +1,14 @@
 class FamilyPostsController < ApplicationController
   def create
+    logger.debug(params[:images])
     @family_post = current_family.family_posts.build(family_post_params)
-    if params[:images]
-      params[:images].each { |image|
-        @family_post.family_post_images.build(image: image)
-      }
-    end
-
     if @family_post.save
+      if params[:images]
+        params[:images].each { |image|
+          @family_post.family_post_images.create(image: image)
+          logger.debug(image)
+        }
+      end
       flash[:success] = "投稿しました！"
       redirect_to request.referrer || 'families/show'
     else
@@ -25,6 +26,6 @@ class FamilyPostsController < ApplicationController
 
   private
   def family_post_params
-    params.require(:family_post).permit(:family_id, :content, :stars_count, family_post_images_attributes: [:image])
+    params.require(:family_post).permit(:family_id, :content, :stars_count, :images => [])
   end
 end
