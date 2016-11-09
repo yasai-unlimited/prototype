@@ -23,16 +23,7 @@
         <% if @family_posts %>
           <div>
             <% @family_posts.each do |p| %>
-              <div>
-                <div><%= p.content %></div>
-                <% if p.family_post_images.present? %>
-                  </div>
-                    <% p.family_post_images.each do |i| %>
-                      <%= image_tag i.image.thumb.url %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
+                <%= render 'family_posts/family_posts', family_post: p %>
             <% end %>
           </div>
         <% end %>

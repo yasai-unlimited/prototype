@@ -31,5 +31,5 @@ class Family < ActiveRecord::Base
     following?(another_family) && another_family.following?(self)
   end
 
-  has_many :family_posts
+  has_many :family_posts, dependent: :destroy
 end
