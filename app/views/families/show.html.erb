@@ -1,14 +1,26 @@
+<%# show family information for all users %>
 <p id="notice"><%= notice %></p>
 <%= render('info') %>
 <%= render('follow_form') %>
+
+<%# show family own posts if family visiting own family_page %>
 <% if current_family == @family %>
+    <nav>
+      <ul>
+        <li><%= link_to 'TL', timeline_family_path %></li>
+        <li><%= link_to 'カレンダー', calendar_family_path %></li>
+      </ul>
+    </nav>
     <%= render('contents') %>
     <%= link_to 'Edit', edit_family_path(@family) %> |
     <%= link_to 'Back', families_path %>
+<%# show user posts to other users %>
 <% else %>
+    <%# for all families %>
     <% if @family.general_open %>
         <%= render('contents') %>
 
+    <%# for friend families %>
     <% elsif @family.friend_open %>
         <%= current_family.has_family_relationship?(@family) %>
         <% if user_signed_in? && current_user.has_family? && current_family.has_family_relationship?(@family) %>
@@ -17,13 +29,12 @@
               <%= render('follow_form') %>
             </div>
         <% end %>
+    <%# in case family don't open to other users %>
     <% else %>
-        <% unless @family.general_open %>
-            <% if @family.friend_open %>
-                <p>友達限定です</p>
-            <% else %>
-                <p>公開されていないユーザーです。</p>
-            <% end %>
+        <% if @family.friend_open %>
+            <p>友達限定です</p>
+        <% else %>
+            <p>公開されていないユーザーです。</p>
         <% end %>
         <p>ホームに戻りましょう！リダイレクトは後で実装</p>
         <%= link_to "Home", root_path %>

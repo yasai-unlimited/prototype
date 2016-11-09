@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'static_pages#home'
-  get 'timeline', :to => 'static_pages#timeline'
   devise_for :users, :controllers => {
       :registrations => 'users/registrations',
       :sessions => 'users/sessions'
@@ -11,9 +10,14 @@ Rails.application.routes.draw do
   end
 
   resources :families do
+    resource :calendar, only: [:show] do
+      get "calendar_date", :path => '/:year:month:day', :to => 'calendars#date', :constraints => { :year => /[1-9][0-9]{3}/, :month => /[01][0-9]/, :day => /[0-3][0-9]/ }
+    end
+
     member do
       get :followings
       get :followers
+      get :timeline
     end
   end
 
