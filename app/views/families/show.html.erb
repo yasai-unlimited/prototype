@@ -5,6 +5,10 @@
     <%= render('contents') %>
     <%= link_to 'Edit', edit_family_path(@family) %> |
     <%= link_to 'Back', families_path %>
+
+    <br><br>
+    <p>機能</p>
+    <%= link_to 'アルバム', pictures_path %>
 <% else %>
     <% if @family.general_open %>
         <%= render('contents') %>
@@ -29,5 +33,3 @@
         <%= link_to "Home", root_path %>
     <% end %>
 <% end %>
-
-<p>アルバムへのリンク</p>
