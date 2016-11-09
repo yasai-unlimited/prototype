@@ -5,5 +5,14 @@
   <%= @picture.date %>
 </p>
 
+<p>
+<strong>Image:</strong>
+<% if @picture.image? %>
+  <div class="thumbnail">
+  <%= image_tag @picture.image.url %>
+</div>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>

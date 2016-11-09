@@ -15,6 +15,27 @@
     <%= f.label :date %><br>
     <%= f.datetime_select :date %>
   </div>
+
+  <div class="field">
+    <% if @picture.image? %>
+      <div class="thumbnail">
+      <%= image_tag @picture.image.url %>
+    </div>
+  <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @picture.persisted? && @picture.image? %>
+      <label>
+      <%= f.check_box :remove_image %>
+      画像を削除
+    </label>
+  <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
