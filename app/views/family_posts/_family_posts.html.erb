@@ -1,0 +1,19 @@
+<div id="familyPost-<%= family_post.id %>">
+  <div class="familyPost-familyName"><%= link_to family_post.family.name, family_post.family %></div>
+  <div class="familyPost-Content"><%= family_post.content %></div>
+  <div class="familyPost-images">
+    <% if family_post.family_post_images.present? %>
+      <% family_post.family_post_images.each do |i| %>
+        <ul>
+          <li><%= image_tag i.image.thumb.url %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="familyPost-timestamp">
+    Posted <%= time_ago_in_words(family_post.created_at) %> ago.
+    <% if current_family == family_post.family %>
+      <%= link_to "delete", family_post, method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+    <% end %>
+  </div>
+</div>

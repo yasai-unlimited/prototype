@@ -1,0 +1,20 @@
+#friendGeneralSwitchTabs {
+  list-style: none;
+
+  li {
+    float: left;
+    cursor: pointer;
+    &:hover {
+      background: #9a9a9a;
+    }
+  }
+}
+
+#friendOrGeneralContents {
+  clear: both;
+  margin: 40px 0;
+}
+
+#generalContents {
+  display: none;
+}
