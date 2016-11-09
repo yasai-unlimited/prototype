@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+  <div style="height: 40px; background: #666666; position: relative;">
+    <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
+      +
+    </div>
+  </div>
+
+  <nav>
+    <ul id="friendGeneralSwitchTabs">
+      <li id="friendSelectBtn">友達 | </li>
+      <li id="generalSelectBtn">一般</li>
+    </ul>
+  </nav>
+
+  <div id="friendOrGeneralContents">
+    <div id="friendContents">
+      <p>aaaa</p>
+    </div>
+
+    <div id="generalContents">
+      <p>bbbb</p>
+    </div>
+  </div>
+
+<% else %>
+    <p>ログインしてください。</p>
+    <%= link_to 'HOME', root_path %>
+<% end %>

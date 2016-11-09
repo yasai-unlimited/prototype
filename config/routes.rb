@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static_pages#home'
+  get 'timeline', :to => 'static_pages#timeline'
   devise_for :users, :controllers => {
       :registrations => 'users/registrations',
       :sessions => 'users/sessions'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     end
   end
   resources :family_relationships, only: [:create, :destroy]
+  resources :family_posts, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
