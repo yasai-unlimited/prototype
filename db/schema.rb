@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110114514) do
+ActiveRecord::Schema.define(version: 20161110160609) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -66,6 +66,19 @@ ActiveRecord::Schema.define(version: 20161110114514) do
   add_index "family_relationships", ["follow_id", "follower_id"], name: "index_family_relationships_on_follow_id_and_follower_id", unique: true
   add_index "family_relationships", ["follow_id"], name: "index_family_relationships_on_follow_id"
   add_index "family_relationships", ["follower_id"], name: "index_family_relationships_on_follower_id"
+
+  create_table "sns_comments", force: :cascade do |t|
+    t.integer  "family_id"
+    t.integer  "family_post_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "sns_comments", ["family_id", "family_post_id", "user_id"], name: "index_sns_comments_on_family_id_and_family_post_id_and_user_id", unique: true
+  add_index "sns_comments", ["family_id"], name: "index_sns_comments_on_family_id"
+  add_index "sns_comments", ["family_post_id"], name: "index_sns_comments_on_family_post_id"
+  add_index "sns_comments", ["user_id"], name: "index_sns_comments_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false

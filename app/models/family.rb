@@ -48,4 +48,7 @@ class Family < ActiveRecord::Base
   def family_post_stared?(family_post)
     stared_family_posts.include?(family_post)
   end
+
+  has_many :sns_comments, class_name: SnsComment, foreign_key: 'family_id', dependent: :destroy
+  has_many :sns_commented_posts, through: :sns_comments, source: :family_post
 end
