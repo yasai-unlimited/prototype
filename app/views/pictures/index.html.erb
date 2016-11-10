@@ -29,7 +29,7 @@
         <tr>
           <td><%= picture.date %></td>
           <td><%= image_tag picture.image.url %></td>
-          <td><%= link_to 'Show', picture %></td>
+          <td><%= link_to 'Show', picture_path(:id => picture, :family_id => @family) %></td>
           <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
           <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -44,7 +44,7 @@
       <tr>
         <td><%= picture.date %></td>
         <td><%= image_tag picture.image.url %></td>
-        <td><%= link_to 'Show', picture %></td>
+        <td><%= link_to 'Show', picture_path(:id => picture, :family_id => @family) %></td>
         <td><%= link_to 'Edit', edit_picture_path(:id => picture, :family_id => @family) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -54,6 +54,8 @@
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path() %>
+<%= link_to 'リダイレクト', pictures_path(:family_id => @family) %>
+<br>
+<%= link_to 'New Picture', new_picture_path(:family_id => @family) %>
 <br>
 <%= link_to 'Back FamilyPage', families_path %>

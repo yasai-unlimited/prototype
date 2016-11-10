@@ -73,11 +73,7 @@ class FamiliesController < ApplicationController
     def family_params
       params.require(:family).permit(:name, :friend_open, :general_open, :icon, :coverimage, :description, :title)
     end
-
-    # def album_params
-    #   params.require(:album).permit(:hoge, :fuga)
-    # end
-
+    
     # # Need params when creating family
     # def family_params
     #   params.require(:family).permit(:name, :friend_open, :general_open, :icon, :coverimage, :description, :title)

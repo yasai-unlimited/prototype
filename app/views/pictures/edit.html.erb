@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @picture %> |
+<%= link_to 'Show', picture_path(:id => @picture.id, :family_id => @family) %> |
 <%= link_to 'Back', pictures_path(:family_id => @family) %>

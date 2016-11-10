@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :set_family, only: [:index, :edit]
+  before_action :set_family, only: [:index, :show, :edit, :new, :create]
 
   # GET /pictures
   # GET /pictures.json
@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
       if @picture.save
         # @album = @family.album.pictures.bulid
         # @album.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to @picture, notice: 'Picture was successfully created.', :flash => {:family_id => @family} }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
