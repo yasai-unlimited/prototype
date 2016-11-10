@@ -65,7 +65,8 @@ class FamiliesController < ApplicationController
   def timeline
     my_family = current_family
     @family_post = my_family.family_posts.build
-    @family_posts = my_family.family_posts.order(created_at: :desc)
+    # @family_posts = my_family.family_posts.order(created_at: :desc).page(params[:page])
+    @family_posts = my_family.family_posts.page(params[:page])
   end
 
   private

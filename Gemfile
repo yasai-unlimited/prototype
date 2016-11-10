@@ -39,6 +39,9 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 
+# Use Kaminari for pagination
+gem 'kaminari'
+
 # User FullCalendar-rails and momentjs-rails for calendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
