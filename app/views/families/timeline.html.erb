@@ -22,9 +22,11 @@
       <div id="friendContents">
         <% if @family_posts %>
 
-            <div>
+            <div id="familyPostsView">
               <% @family_posts.each do |p| %>
-                  <%= render 'family_posts/family_posts', family_post: p %>
+                  <div class="familyPost">
+                    <%= render 'family_posts/family_posts', family_post: p %>
+                  </div>
               <% end %>
             </div>
             <%= paginate @family_posts %>

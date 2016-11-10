@@ -46,6 +46,9 @@ gem 'kaminari'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+# User jQuery-turbolinks for loding while browsing
+gem "jquery-turbolinks"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
