@@ -1,12 +1,11 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :set_family, only: [:index]
+  before_action :set_family, only: [:index, :edit]
 
   # GET /pictures
   # GET /pictures.json
   def index
     @pictures = Picture.all
-    @family = Family.find(params[:family_id])
   end
 
   # GET /pictures/1
@@ -27,9 +26,12 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    # @picture = @family.album.pictures.bulid(picture_params)
 
     respond_to do |format|
       if @picture.save
+        # @album = @family.album.pictures.bulid
+        # @album.save
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
@@ -73,9 +75,11 @@ class PicturesController < ApplicationController
     def picture_params
       # params.require(:picture).permit(:date)
       params.require(:picture).permit(:date, :image, :image_cache, :remove_image)
+      # params.require[:picture]
     end
 
     def set_family
       @families = Family.all
+      @family = Family.find(params[:family_id])
     end
 end
