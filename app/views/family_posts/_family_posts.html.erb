@@ -12,6 +12,9 @@
   </div>
   <div class="familyPost-reactions">
     <div class="familyPostStar">
+      <h2>aaa</h2>
+      <%= current_family.family_post_stars.all %>
+      <%= current_family.family_post_stared?(family_post) %>
       <div id="familyPostStar-<%= family_post.id %>">
         <% if current_family.family_post_stared?(family_post) %>
             <%= render 'family_post_stars/family_post_unstar' , family_post: family_post %>

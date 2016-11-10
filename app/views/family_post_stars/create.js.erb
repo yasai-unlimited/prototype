@@ -2,7 +2,7 @@ $('.familyPostStar').prop("disabled", true);
 var speed = 1000;
 var familyPostStar = function() {
   var familyPostStarCount = $('#familyPostStarCount-<%= @family_post.id %>');
-  $('#familyPostStar-<%= @family_post.id %>').replaceWith("<%= escape_javascript(render('family_post_stars/family_post_unstar', { family_post: @family_post })) %>");
+  $('#familyPostStar-<%= @family_post.id %>').html("<%= escape_javascript(render('family_post_stars/family_post_unstar', { family_post: @family_post })) %>");
   familyPostStarCount.html(parseInt(familyPostStarCount.text())+1);
 };
 setTimeout(familyPostStar, speed);
