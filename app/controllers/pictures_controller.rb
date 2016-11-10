@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :set_family, only: [:index, :show, :edit, :new, :create]
+  before_action :set_family
+  # before_action :set_family, only: [:index, :show, :new, :edit]
+  # before_action :set_family_from_picture, only: [:create, :update]
 
   # GET /pictures
   # GET /pictures.json
@@ -80,6 +82,14 @@ class PicturesController < ApplicationController
 
     def set_family
       @families = Family.all
-      @family = Family.find(params[:family_id])
+      unless Family.find_by_id(params[:family_id]).nil?
+        @family = Family.find(params[:family_id])
+      else
+        @family = Family.find(params[:picture][:family_id])
+      end
+    end
+
+    def set_family_from_picture
+      @family = Family.find(params[:picture][:family_id])
     end
 end
