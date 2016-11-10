@@ -8,7 +8,7 @@
 
     <br><br>
     <p>機能</p>
-    <%= link_to 'アルバム', pictures_path %>
+    <%= link_to 'アルバム', pictures_path(:family_id => @family) %>
 
 <% else %>
     <% if @family.general_open %>

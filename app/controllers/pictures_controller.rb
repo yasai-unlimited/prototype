@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @pictures = Picture.all
-    # @pictures = @families.album.picuture.all
+    @family = Family.find(params[:family_id])
   end
 
   # GET /pictures/1

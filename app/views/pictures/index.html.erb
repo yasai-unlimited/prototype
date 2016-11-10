@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Pictures</h1>
+<h1>Album</h1>
 
 <table>
   <thead>
@@ -10,16 +10,34 @@
     </tr>
   </thead>
 
-  <p>
-    <%= @families.each do |family| %>
-      <% unless family.album.nil? %>
-        <%= family.album.id %>
-        <br>
-      <% else %>
-      <p>hoge</p>
+  <p>ログインファミリー</p>
+
+  <% unless @family.album.nil? %>
+    <%= @family.album.id %>
+    <%= @family.album.family_id %>
+  <% end %>
+
+  <p>全ファミリー</p>
+
+  <% @families.each do |family| %>
+    <% unless family.album.nil? %>
+      <%= family.album.id %>
+      <%= family.album.family_id %>
+      <% unless family.album.pictures.nil? %>
+        <p>hogehoge</p>
+        <% family.album.pictures.each do |picture| %>
+        <tr>
+          <td><%= picture.date %></td>
+          <td><%= image_tag picture.image.url %></td>
+          <td><%= link_to 'Show', picture %></td>
+          <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+          <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      <br>
       <% end %>
     <% end %>
-  </p>
+  <% end %>
 
   <tbody>
     <% @pictures.each do |picture| %>
