@@ -4,4 +4,7 @@ class FamilyPost < ActiveRecord::Base
 
   has_many :family_post_images, dependent: :destroy
   accepts_nested_attributes_for :family_post_images
+
+  has_many :family_post_stars, foreign_key: 'family_post_id', dependent: :destroy
+  has_many :family_post_families, through: :family_post_stars, source: :family
 end

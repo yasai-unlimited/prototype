@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   end
 
   resources :family_relationships, only: [:create, :destroy]
-
   resources :family_posts, only: [:create, :destroy]
+  resources :family_post_stars, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

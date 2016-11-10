@@ -1,0 +1,2 @@
+module FamilyPostStarsHelper
+end

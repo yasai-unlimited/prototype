@@ -10,6 +10,18 @@
       <% end %>
     <% end %>
   </div>
+  <div class="familyPost-reactions">
+    <div class="familyPostStar">
+      <div id="familyPostStar-<%= family_post.id %>">
+        <% if current_family.family_post_stared?(family_post) %>
+            <%= render 'family_post_stars/family_post_unstar' , family_post: family_post %>
+        <% else %>
+            <%= render 'family_post_stars/family_post_star' , family_post: family_post %>
+        <% end %>
+      </div>
+      <div id="familyPostStarCount-<%= family_post.id %>"><%= family_post.family_post_stars.count %></div>
+    </div>
+  </div>
   <div class="familyPost-timestamp">
     Posted <%= time_ago_in_words(family_post.created_at) %> ago.
     <% if current_family == family_post.family %>
