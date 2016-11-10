@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  family_id: 
+  content: MyText
+  stars_count: 1
+
+two:
+  family_id: 
+  content: MyText
+  stars_count: 1

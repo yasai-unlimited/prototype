@@ -14,7 +14,6 @@ class Family < ActiveRecord::Base
                                 dependent: :destroy
   has_many :follower_families, through: :follower_relationships, source: :follow
 
-
   def follow(another_family)
     following_relationships.find_or_create_by(follower_id: another_family.id)
   end
@@ -31,4 +30,6 @@ class Family < ActiveRecord::Base
   def has_family_relationship?(another_family)
     following?(another_family) && another_family.following?(self)
   end
+
+  has_many :family_posts, dependent: :destroy
 end
