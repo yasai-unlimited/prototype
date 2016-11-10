@@ -1,5 +1,5 @@
 <div id="familyPost-<%= family_post.id %>">
-  <div class="familyPost-familyName"><%= link_to family_post.family.name, family_post.family %></div>
+  <div class="familyPost-familyName"><%= link_to family_post.family.name, family_path(family_post.family) %></div>
   <div class="familyPost-Content"><%= family_post.content %></div>
   <div class="familyPost-images">
     <% if family_post.family_post_images.present? %>
