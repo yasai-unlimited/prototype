@@ -32,4 +32,20 @@ class Family < ActiveRecord::Base
   end
 
   has_many :family_posts, dependent: :destroy
+
+  has_many :family_post_stars, class_name: FamilyPostStar, foreign_key: 'family_id', dependent: :destroy
+  has_many :stared_family_posts, through: :family_post_stars, source: :family_post
+
+  def family_post_star(family_post)
+    family_post_stars.find_or_create_by(family_post_id: family_post.id)
+  end
+
+  def family_post_unstar(family_post)
+    family_post = family_post_stars.find_by(family_post_id: family_post.id)
+    family_post.destroy if family_post
+  end
+
+  def family_post_stared?(family_post)
+    stared_family_posts.include?(family_post)
+  end
 end

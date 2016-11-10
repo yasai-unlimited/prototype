@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108225828) do
+ActiveRecord::Schema.define(version: 20161110114514) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20161108225828) do
   end
 
   add_index "family_post_images", ["family_post_id", "created_at"], name: "index_family_post_images_on_family_post_id_and_created_at"
+
+  create_table "family_post_stars", force: :cascade do |t|
+    t.integer  "family_id"
+    t.integer  "family_post_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "family_post_stars", ["family_id", "family_post_id"], name: "index_family_post_stars_on_family_id_and_family_post_id", unique: true
+  add_index "family_post_stars", ["family_id"], name: "index_family_post_stars_on_family_id"
+  add_index "family_post_stars", ["family_post_id"], name: "index_family_post_stars_on_family_post_id"
 
   create_table "family_posts", force: :cascade do |t|
     t.integer  "family_id"

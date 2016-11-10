@@ -1,0 +1,6 @@
+<%= link_to "いいね！" , family_post_stars_path(family_post_id: family_post.id),
+            :class => "familyPostStar",
+            :id => "starBtn-#{family_post.id}",
+            :data => { no_turbolink: true },
+            :remote => true,
+            :method => :post %>
