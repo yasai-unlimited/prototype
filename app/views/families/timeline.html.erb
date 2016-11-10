@@ -21,11 +21,15 @@
       <h2>Friend</h2>
       <div id="friendContents">
         <% if @family_posts %>
-          <div>
-            <% @family_posts.each do |p| %>
-                <%= render 'family_posts/family_posts', family_post: p %>
-            <% end %>
-          </div>
+
+            <div id="familyPostsView">
+              <% @family_posts.each do |p| %>
+                  <div class="familyPost">
+                    <%= render 'family_posts/family_posts', family_post: p %>
+                  </div>
+              <% end %>
+            </div>
+            <%= paginate @family_posts %>
         <% end %>
       </div>
 
