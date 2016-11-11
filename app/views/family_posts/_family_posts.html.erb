@@ -25,9 +25,12 @@
     <div class="familyPostComment">
       <%= render 'shared/sns_comment_form', family_post: family_post %>
       <% if family_post.has_comment? %>
+          <div class="familyPostCommentsCount">
+              <p>コメント<%= family_post.sns_comments_families.count %>件</p>
+          </div>
           <div class="familyPostComments">
               <% family_post.sns_comments.each do |c| %>
-                <%= c.content %>
+                <div><%= c.content %></div>
               <% end %>
           </div>
       <% end %>
