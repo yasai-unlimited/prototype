@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20161111063056) do
 
+  create_table "albums", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id"
+    t.integer  "family_id"
+  end
+
   create_table "families", force: :cascade do |t|
     t.string   "name"
     t.boolean  "friend_open",  default: false, null: false
@@ -23,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161111063056) do
     t.string   "title"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "album_id"
   end
 
   create_table "family_post_images", force: :cascade do |t|
@@ -68,6 +77,15 @@ ActiveRecord::Schema.define(version: 20161111063056) do
   add_index "family_relationships", ["follow_id", "follower_id"], name: "index_family_relationships_on_follow_id_and_follower_id", unique: true
   add_index "family_relationships", ["follow_id"], name: "index_family_relationships_on_follow_id"
   add_index "family_relationships", ["follower_id"], name: "index_family_relationships_on_follower_id"
+
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.integer  "album_id"
+    t.integer  "family_id"
+  end
 
   create_table "sns_comments", force: :cascade do |t|
     t.integer  "family_id"

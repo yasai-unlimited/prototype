@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get :followers
       get :timeline
     end
+
+    resources :pictures
   end
 
   resources :family_relationships, only: [:create, :destroy]

@@ -25,9 +25,10 @@ class FamiliesController < ApplicationController
   # POST /families.json
   def create
     @family = Family.new
-
     respond_to do |format|
       if @family.save
+        @album = @family.build_album
+        @album.save
         current_user.update(family_id: @family.id)
         format.html { redirect_to @family, notice: 'Family was successfully created.' }
         format.json { render :show, status: :created, location: @family }
@@ -80,7 +81,7 @@ class FamiliesController < ApplicationController
     def family_params
       params.require(:family).permit(:name, :friend_open, :general_open, :icon, :coverimage, :description, :title)
     end
-
+    
     # # Need params when creating family
     # def family_params
     #   params.require(:family).permit(:name, :friend_open, :general_open, :icon, :coverimage, :description, :title)
