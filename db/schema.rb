@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111010142) do
+ActiveRecord::Schema.define(version: 20161111063056) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 20161111010142) do
   create_table "family_posts", force: :cascade do |t|
     t.integer  "family_id"
     t.text     "content"
-    t.integer  "stars_count", default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "stars_count",  default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "friend_open",  default: false
+    t.boolean  "general_open", default: false
   end
 
   add_index "family_posts", ["family_id", "created_at"], name: "index_family_posts_on_family_id_and_created_at"
