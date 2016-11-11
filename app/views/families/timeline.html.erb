@@ -17,16 +17,20 @@
       <!--</ul>-->
     <!--</nav>-->
 
-    <div id="friendOrGeneralContents">
+            <div id="friendOrGeneralContents">
       <h2>Friend</h2>
-      <div id="friendContents">
+      <div id="familyPostsView">
         <% if @family_posts %>
-          <div>
-            <% @family_posts.each do |p| %>
-                <%= render 'family_posts/family_posts', family_post: p %>
+            <% @family_posts.each do |f_p| %>
+                <div class="familyPost">
+                  <% if f_p.general_open || (f_p.friend_open && current_family.has_family_relationship?(f_p.family)) || current_family == f_p.family %>
+                    <%= render 'family_posts/family_posts', family_post: f_p %>
+                  <% end %>
+                </div>
             <% end %>
-          </div>
-        <% end %>
+            <%= paginate @family_posts %>
+
+      <% end %>
       </div>
 
       <div id="generalContents">

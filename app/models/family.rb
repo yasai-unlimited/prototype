@@ -14,6 +14,8 @@ class Family < ActiveRecord::Base
                                 dependent: :destroy
   has_many :follower_families, through: :follower_relationships, source: :follow
 
+  has_many :family_posts, dependent: :destroy
+
   def follow(another_family)
     following_relationships.find_or_create_by(follower_id: another_family.id)
   end
@@ -31,5 +33,63 @@ class Family < ActiveRecord::Base
     following?(another_family) && another_family.following?(self)
   end
 
-  has_many :family_posts, dependent: :destroy
+  # def friend_families
+  #   followers = follower_families
+  #   friends = []
+  #   following_families.each do |follow|
+  #     if followers.include?(follow)
+  #       friends.push(follow)
+  #     end
+  #   end
+  #   logger.debug(friends)
+  #   friends
+  # end
+
+  def my_and_friend_families_posts
+    followers = follower_families
+    my_and_friends_posts = family_posts
+    following_families.each do |follow|
+      if followers.include?(follow)
+        my_and_friends_posts.push(follow.family_posts)
+      end
+    end
+    my_and_friends_posts
+  end
+
+  def all_posts
+    all_posts = family_posts
+    following_families.each do |f|
+      all_posts.push(f.family_posts)
+    end
+    all_posts
+  end
+
+
+  has_many :family_post_stars, class_name: FamilyPostStar, foreign_key: 'family_id', dependent: :destroy
+  has_many :stared_family_posts, through: :family_post_stars, source: :family_post
+
+  def family_post_star(family_post)
+    family_post_stars.find_or_create_by(family_post_id: family_post.id)
+  end
+
+  def family_post_unstar(family_post)
+    family_post = family_post_stars.find_by(family_post_id: family_post.id)
+    family_post.destroy if family_post
+  end
+
+  def family_post_stared?(family_post)
+    stared_family_posts.include?(family_post)
+  end
+
+  has_many :sns_comments, class_name: SnsComment, foreign_key: 'family_id', dependent: :destroy
+  has_many :sns_commented_posts, through: :sns_comments, source: :family_post
+
+  def sns_comment(family_post, content)
+    sns_comments.find_or_create_by(family_post_id: family_post.id, user_id: current_user.id, content: content)
+  end
+
+  def delete_sns_comment(family_post)
+    sns_comment = sns_comments.find_by(family_post_id: family_post.id, user_id: current_user.id)
+    sns_comment.destroy if sns_comment
+  end
 end

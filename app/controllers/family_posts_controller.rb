@@ -24,6 +24,6 @@ class FamilyPostsController < ApplicationController
 
   private
   def family_post_params
-    params.require(:family_post).permit(:family_id, :content, :stars_count, :images => [])
+    params.require(:family_post).permit(:family_id, :content, :stars_count, :friend_open, :general_open, :images => [])
   end
 end

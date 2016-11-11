@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
   def has_family?
     family_id.present?
   end
+
+  has_many :sns_comments, class_name: SnsComment, foreign_key: 'user_id', dependent: :destroy
+  has_many :sns_commented_posts, through: :sns_comments, source: :family_post
 end
