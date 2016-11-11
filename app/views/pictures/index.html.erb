@@ -44,9 +44,9 @@
       <tr>
         <td><%= picture.date %></td>
         <td><%= image_tag picture.image.url %></td>
-        <td><%= link_to 'Show', family_picture_path(:id => picture, :family_id => @family) %></td>
-        <td><%= link_to 'Edit', edit_family_picture_path(:id => picture, :family_id => @family) %></td>
-        <td><%= link_to 'Destroy', family_picture_path(:id => picture, :family_id => @family), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', family_picture_path(@family, picture) %></td>
+        <td><%= link_to 'Edit', edit_family_picture_path(@family, picture) %></td>
+        <td><%= link_to 'Destroy', family_picture_path(@family, picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -6,4 +6,4 @@
   <%= link_to 'Create Picture', {controller: 'pictures', action: 'create', id: @picture.id, family_id: @family} %>
 </div> -->
 
-<%= link_to 'Back', pictures_path(:family_id => @family) %>
+<%= link_to 'Back', family_pictures_path(@family) %>
