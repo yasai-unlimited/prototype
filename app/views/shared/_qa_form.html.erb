@@ -1,0 +1,19 @@
+<%= form_for(@question, url: questions_path) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "質問内容を入力してください。" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :images %>
+      <%= f.file_field :images, :name => 'images[]', multiple: true %>
+    </div>
+    <div class="field">
+      <%= f.label :friend_open %><br>
+      <%= f.check_box :friend_open %>
+    </div>
+    <div class="field">
+      <%= f.label :general_open %><br>
+      <%= f.check_box :general_open %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

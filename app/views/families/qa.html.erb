@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+    <% if current_user.has_family? %>
+        <div style="height: 40px; background: #666666; position: relative;">
+          <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
+            +
+          </div>
+        </div>
+        <div id="familyPostModal">
+          <%= render('shared/qa_form') %>
+        </div>
+    <% end %>
+
+    <nav>
+    <ul id="friendGeneralSwitchTabs">
+    <li id="friendSelectBtn">友達 | </li>
+    <li id="generalSelectBtn">一般</li>
+    </ul>
+    </nav>
+
+    <div id="friendOrGeneralContents">
+      <h2>Friend</h2>
+      <div id="familyPostsView">
+        <% if @questions %>
+            <% @questions.each do |q| %>
+                <div class="familyPost">
+                  <%= render 'questions/question' %>
+                </div>
+            <% end %>
+            <%= paginate @questions %>
+        <% end %>
+      </div>
+
+      <div id="generalContents">
+        <h2>General</h2>
+      </div>
+    </div>
+
+<% else %>
+    <p>ログインしてください。</p>
+    <%= link_to 'HOME', root_path %>
+<% end %>

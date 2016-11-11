@@ -1,0 +1,11 @@
+<div id="question-<%= question.id %>">
+  <div class="question-questionName"><%= link_to question.question.name, question_path(question.question) %></div>
+  <div class="question-Content"><%= question.content %></div>
+
+  <div class="question-timestamp">
+    Posted <%= time_ago_in_words(question.created_at) %> ago.
+    <% if current_question == question.question %>
+        <%= link_to "delete", question, method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+    <% end %>
+  </div>
+</div>
