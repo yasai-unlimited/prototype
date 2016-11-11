@@ -1,0 +1,10 @@
+<%= form_for(@sns_comment, url: family_post_sns_comments_path(family_post_id: family_post.id)) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "投稿するテキストを入力できます" %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :family_post_id, value: family_post.id %>
+    </div>
+    <%= f.submit "Comment", class: "btn btn-primary" %>
+<% end %>

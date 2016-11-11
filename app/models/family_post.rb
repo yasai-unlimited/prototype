@@ -7,4 +7,11 @@ class FamilyPost < ActiveRecord::Base
 
   has_many :family_post_stars, class_name: FamilyPostStar, foreign_key: 'family_post_id', dependent: :destroy
   has_many :family_post_families, through: :family_post_stars, source: :family
+
+  has_many :sns_comments, class_name: SnsComment, foreign_key: 'family_post_id', dependent: :destroy
+  has_many :sns_comments_families, through: :sns_comments, source: :family
+
+  def has_comment?
+    sns_comments_families.count != 0
+  end
 end

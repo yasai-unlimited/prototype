@@ -48,4 +48,16 @@ class Family < ActiveRecord::Base
   def family_post_stared?(family_post)
     stared_family_posts.include?(family_post)
   end
+
+  has_many :sns_comments, class_name: SnsComment, foreign_key: 'family_id', dependent: :destroy
+  has_many :sns_commented_posts, through: :sns_comments, source: :family_post
+
+  def sns_comment(family_post, content)
+    sns_comments.find_or_create_by(family_post_id: family_post.id, user_id: current_user.id, content: content)
+  end
+
+  def delete_sns_comment(family_post)
+    sns_comment = sns_comments.find_by(family_post_id: family_post.id, user_id: current_user.id)
+    sns_comment.destroy if sns_comment
+  end
 end
