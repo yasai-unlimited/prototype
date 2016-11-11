@@ -29,9 +29,9 @@
         <tr>
           <td><%= picture.date %></td>
           <td><%= image_tag picture.image.url %></td>
-          <td><%= link_to 'Show', picture_path(:id => picture, :family_id => @family) %></td>
-          <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-          <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', family_picture_path(:id => picture, :family_id => @family) %></td>
+          <td><%= link_to 'Edit', edit_family_picture_path(:id => picture, :family_id => @family) %></td>
+          <td><%= link_to 'Destroy', family_picture_path(:id => picture, :family_id => @family), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
       <br>
@@ -44,9 +44,9 @@
       <tr>
         <td><%= picture.date %></td>
         <td><%= image_tag picture.image.url %></td>
-        <td><%= link_to 'Show', picture_path(:id => picture, :family_id => @family) %></td>
-        <td><%= link_to 'Edit', edit_picture_path(:id => picture, :family_id => @family) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', family_picture_path(:id => picture, :family_id => @family) %></td>
+        <td><%= link_to 'Edit', edit_family_picture_path(:id => picture, :family_id => @family) %></td>
+        <td><%= link_to 'Destroy', family_picture_path(:id => picture, :family_id => @family), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -54,8 +54,8 @@
 
 <br>
 
-<%= link_to 'リダイレクト', pictures_path(:family_id => @family) %>
+<%= link_to 'リダイレクト', family_pictures_path(:family_id => @family) %>
 <br>
-<%= link_to 'New Picture', new_picture_path(:family_id => @family) %>
+<%= link_to 'New Picture', new_family_picture_path(:family_id => @family) %>
 <br>
-<%= link_to 'Back FamilyPage', families_path %>
+<%= link_to 'Back FamilyPage', family_path(:id => @family) %>
