@@ -33,6 +33,7 @@ class PicturesController < ApplicationController
       if @picture.save
         # @album = @family.album.pictures.bulid
         # @album.save
+        @family.album.pictures << @picture
         format.html { redirect_to [@family, @picture], notice: 'Picture was successfully created.', :flash => {:family_id => @family} }
         format.json { render :show, status: :created, location: @picture }
       else
