@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pictures
   root to: 'static_pages#home'
   devise_for :users, :controllers => {
       :registrations => 'users/registrations',
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
       get :followings
       get :followers
     end
+
+    resource :pictures
   end
   resources :family_relationships, only: [:create, :destroy]
 
