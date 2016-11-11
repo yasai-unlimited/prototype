@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110160609) do
+ActiveRecord::Schema.define(version: 20161111010142) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(version: 20161110160609) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.text     "content"
   end
 
-  add_index "sns_comments", ["family_id", "family_post_id", "user_id"], name: "index_sns_comments_on_family_id_and_family_post_id_and_user_id", unique: true
+  add_index "sns_comments", ["family_id", "family_post_id", "user_id"], name: "index_sns_comments_on_family_id_and_family_post_id_and_user_id"
   add_index "sns_comments", ["family_id"], name: "index_sns_comments_on_family_id"
   add_index "sns_comments", ["family_post_id"], name: "index_sns_comments_on_family_post_id"
   add_index "sns_comments", ["user_id"], name: "index_sns_comments_on_user_id"

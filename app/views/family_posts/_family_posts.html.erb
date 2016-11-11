@@ -21,6 +21,17 @@
       </div>
       <div id="familyPostStarCount-<%= family_post.id %>"><%= family_post.family_post_stars.count %></div>
     </div>
+
+    <div class="familyPostComment">
+      <%= render 'shared/sns_comment_form', family_post: family_post %>
+      <% if family_post.has_comment? %>
+          <div class="familyPostComments">
+              <% family_post.sns_comments.each do |c| %>
+                <%= c.content %>
+              <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
   <div class="familyPost-timestamp">
     Posted <%= time_ago_in_words(family_post.created_at) %> ago.
