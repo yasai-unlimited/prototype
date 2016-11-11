@@ -1,0 +1,22 @@
+<%= form_for(@family_post, url: family_posts_path) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "投稿するテキストを入力できます" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :images %>
+      <%= f.file_field :images, :name => 'images[]', multiple: true %>
+    </div>
+    <div class="field">
+      <%= f.label :friend_open %><br>
+      <%= f.check_box :friend_open %>
+    </div>
+    <div class="field">
+      <%= f.label :general_open %><br>
+      <%= f.check_box :general_open %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :family_id, value: current_family.id %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

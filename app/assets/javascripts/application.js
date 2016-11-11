@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require moment
+//= require jquery.turbolinks
+//= require jquery.infinitescroll
+//= require fullcalendar
+//= require fullcalendar/lang/ja
 //= require_tree .

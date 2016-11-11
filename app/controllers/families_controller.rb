@@ -63,6 +63,14 @@ class FamiliesController < ApplicationController
     end
   end
 
+  def timeline
+    my_family = current_family
+    @family_post = my_family.family_posts.build
+    @sns_comment = my_family.sns_comments.build(user_id: current_user.id)
+    logger.debug("sns_comment   : #{@sns_comment}")
+    @family_posts = my_family.all_posts.order(created_at: :desc).page(params[:page])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_family

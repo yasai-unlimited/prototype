@@ -10,14 +10,24 @@ Rails.application.routes.draw do
   end
 
   resources :families do
+    resource :calendar, only: [:show] do
+      get "calendar_date", :path => '/:year:month:day', :to => 'calendars#date', :constraints => { :year => /[1-9][0-9]{3}/, :month => /[01][0-9]/, :day => /[0-3][0-9]/ }
+    end
+
     member do
       get :followings
       get :followers
+      get :timeline
     end
 
     resources :pictures
   end
+
   resources :family_relationships, only: [:create, :destroy]
+  resources :family_posts, only: [:create, :destroy] do
+    resources :sns_comments, only: [:create, :destroy]
+  end
+  resources :family_post_stars, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

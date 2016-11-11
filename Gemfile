@@ -39,6 +39,16 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 
+# Use Kaminari for pagination
+gem 'kaminari'
+
+# User FullCalendar-rails and momentjs-rails for calendar
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+# User jQuery-turbolinks for loding while browsing
+gem "jquery-turbolinks"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
