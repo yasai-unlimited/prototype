@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20161111063056) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "order_id"
     t.integer  "family_id"
   end
 
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 20161111063056) do
     t.string   "title"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "album_id"
   end
 
   create_table "family_post_images", force: :cascade do |t|
