@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111063056) do
+ActiveRecord::Schema.define(version: 20161111091750) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -68,6 +68,22 @@ ActiveRecord::Schema.define(version: 20161111063056) do
   add_index "family_relationships", ["follow_id", "follower_id"], name: "index_family_relationships_on_follow_id_and_follower_id", unique: true
   add_index "family_relationships", ["follow_id"], name: "index_family_relationships_on_follow_id"
   add_index "family_relationships", ["follower_id"], name: "index_family_relationships_on_follower_id"
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "general_open"
+    t.boolean  "friend_open"
+    t.boolean  "family_open"
+    t.integer  "family_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "questions", ["family_id", "user_id", "created_at"], name: "index_questions_on_family_id_and_user_id_and_created_at"
+  add_index "questions", ["family_id"], name: "index_questions_on_family_id"
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "sns_comments", force: :cascade do |t|
     t.integer  "family_id"

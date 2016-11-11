@@ -92,4 +92,7 @@ class Family < ActiveRecord::Base
     sns_comment = sns_comments.find_by(family_post_id: family_post.id, user_id: current_user.id)
     sns_comment.destroy if sns_comment
   end
+
+
+  has_many :questions, class_name: Question, foreign_key: 'family_id', dependent: :destroy
 end
