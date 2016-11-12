@@ -2,7 +2,7 @@
   <div class="familyInfo-images">
     <div class="familyInfo-coverImage"><%= image_tag @family.coverimage.thumb.url %></div>
     <div class="familyInfo-icon">
-      <div class="familyInfo-icon-innerBox"><%= image_tag @family.icon.thumb.url, :id => "familyInfo-icon" %></div>
+      <%= image_tag @family.icon.thumb.url, :id => "familyInfo-icon" %>
     </div>
   </div>
   <div class="familyInfo-mamaPapa">

@@ -30,24 +30,8 @@
       width: 40vw;
       overflow: hidden;
       background: #ffffff;
+      border: #ffffff solid 2vw;
       border-radius: 20vw;
-
-      .familyInfo-icon-innerBox {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        height: 36vw;
-        width: 36vw;
-        border-radius: 18vw;
-        overflow: hidden;
-
-        img {
-        }
-      }
-
     }
   }
 
