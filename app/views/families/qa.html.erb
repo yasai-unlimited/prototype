@@ -23,7 +23,7 @@
         <% if @questions %>
             <% @questions.each do |q| %>
                 <div class="familyPost">
-                  <%= render 'questions/question' %>
+                  <%= render 'questions/question', question: q %>
                 </div>
             <% end %>
             <%= paginate @questions %>
