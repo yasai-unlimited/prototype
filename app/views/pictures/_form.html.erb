@@ -29,10 +29,7 @@
   <div class="field">
     <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
     <% if @picture.persisted? && @picture.image? %>
-      <label>
-      <%= f.check_box :remove_image %>
-      画像を削除
-      </label>
+      <%= link_to 'Destroy', family_picture_path(@family, @picture), method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 

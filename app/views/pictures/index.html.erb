@@ -2,19 +2,21 @@
 <p id="notice"><%= notice %></p>
 
 <% unless @family.album.nil? %>
-  <% @family.album.pictures.each do |picture| %>
-    <tr>
-      <!-- <li><%= picture.date %></li> -->
+  <ul class="album">
+    <% @family.album.pictures.each do |picture| %>
       <li>
         <%= link_to family_picture_path(@family, picture) do %>
-          <%= image_tag picture.image.url %>
+          <%= image_tag picture.image.thumb.url %>
         <% end %>
       </li>
-      <!-- <li><%= link_to 'Show', family_picture_path(@family, picture) %></li>
-      <li><%= link_to 'Edit', edit_family_picture_path(@family, picture) %></li>
-      <li><%= link_to 'Destroy', family_picture_path(@family, picture), method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
-    </tr>
-  <% end %>
+    <% end %>
+    <!-- <% @family.album.pictures.each do |picture| %> -->
+    <!-- <li><%= picture.date %></li> -->
+    <!-- <li><%= link_to 'Show', family_picture_path(@family, picture) %></li> -->
+    <!-- <li><%= link_to 'Edit', edit_family_picture_path(@family, picture) %></li> -->
+    <!-- <li><%= link_to 'Destroy', family_picture_path(@family, picture), method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
+    <!-- <% end %> -->
+  </ul>
 <% end %>
 
 <%= link_to 'リダイレクト', family_pictures_path(@family) %>
