@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
     my_family = current_family
     @question = my_family.questions.build
     # @sns_comment = my_family.sns_comments.build
-    @questions = my_family.questions.order(created_at: :desc).page(params[:page])
+    @questions = my_family.all_questions.order(created_at: :desc).page(params[:page])
   end
 
   def show
