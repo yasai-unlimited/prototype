@@ -14,6 +14,10 @@ class Family < ActiveRecord::Base
                                 dependent: :destroy
   has_many :follower_families, through: :follower_relationships, source: :follow
 
+
+  has_one :album, dependent: :destroy, foreign_key: 'family_id'
+  has_many :pictures, dependent: :destroy, foreign_key: 'family_id', through: :album
+
   has_many :family_posts, dependent: :destroy
 
   def follow(another_family)

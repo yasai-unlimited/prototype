@@ -14,6 +14,11 @@
     <%= render('contents') %>
     <%= link_to 'Edit', edit_family_path(@family) %> |
     <%= link_to 'Back', families_path %>
+
+    <br><br>
+    <p>機能</p>
+    <%= link_to 'アルバム', family_pictures_path(:family_id => @family) %>
+
 <%# show user posts to other users %>
 <% else %>
     <%# for all families %>

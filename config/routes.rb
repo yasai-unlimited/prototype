@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       get :timeline
       get :qa
     end
+
+    resources :pictures
   end
 
   resources :family_relationships, only: [:create, :destroy]

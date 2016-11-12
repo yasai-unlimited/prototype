@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @picture.date %>
+</p>
+
+<p>
+<strong>Image:</strong>
+<% if @picture.image? %>
+  <div class="thumbnail">
+  <%= image_tag @picture.image.url %>
+</div>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_family_picture_path(@family, @picture) %> |
+<%= link_to 'Back', family_pictures_path(@family, @picture) %>
