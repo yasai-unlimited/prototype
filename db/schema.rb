@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111093950) do
+ActiveRecord::Schema.define(version: 20161112045303) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20161111093950) do
   end
 
   add_index "question_images", ["question_id"], name: "index_question_images_on_question_id"
+
+  create_table "question_stars", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "family_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "question_stars", ["family_id"], name: "index_question_stars_on_family_id"
+  add_index "question_stars", ["question_id", "family_id"], name: "index_question_stars_on_question_id_and_family_id", unique: true
+  add_index "question_stars", ["question_id"], name: "index_question_stars_on_question_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
