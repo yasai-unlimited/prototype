@@ -1,12 +1,23 @@
+<% provide(:title, "タイムライン") %>
+
 <% if user_signed_in? %>
     <% if current_user.has_family? %>
-      <div style="height: 40px; background: #666666; position: relative;">
+      <!-- <div style="height: 40px; background: #666666; position: relative;">
         <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
           +
         </div>
+      </div> -->
+      <div class="fontIcon">
+        <ul>
+          <a href="#"><i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i></a>
+          <a href="#familyPostModal"><i class="fa fa-pencil-square-o fa-fw fa-2x" aria-hidden="true"></i></a>
+        </ul>
       </div>
-      <div id="familyPostModal">
-        <%= render('shared/family_post_form') %>
+      <div id="familyPostModal" class="modal-window">
+        <div class="modal-inner">
+          <%= render('shared/family_post_form') %>
+        </div>
+        <a href="#!" class="modal-close">&times;</a>
       </div>
     <% end %>
 
@@ -17,8 +28,7 @@
       <!--</ul>-->
     <!--</nav>-->
 
-            <div id="friendOrGeneralContents">
-      <h2>Friend</h2>
+    <div id="friendOrGeneralContents">
       <div id="familyPostsView">
         <% if @family_posts %>
             <% @family_posts.each do |f_p| %>
@@ -31,10 +41,6 @@
             <%= paginate @family_posts %>
 
       <% end %>
-      </div>
-
-      <div id="generalContents">
-        <h2>General</h2>
       </div>
     </div>
 
