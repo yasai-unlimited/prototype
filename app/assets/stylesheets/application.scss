@@ -1,2 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "color";
+
+footer{
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content:         center;
+  -webkit-align-items: center;
+  align-items:         center;
+  background-color: $footerBg;
+  nav{
+    ul{
+      li{
+        display: inline-block;
+        width: 19vw;
+        text-align: center;
+      }
+    }
+  }
+}
