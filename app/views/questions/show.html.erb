@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+    <% if current_user.has_family? %>
+        <div><p><%= @question.title %></p></div>
+        <div><p><%= @question.content %></p></div>
+        <div><p><%= link_to "Name: #{@asked_family.name}", family_path(@asked_family) %></p></div>
+    <% end %>
+
+<% else %>
+    <p>ログインしてください。</p>
+    <%= link_to 'HOME', root_path %>
+<% end %>

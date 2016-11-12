@@ -1,7 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :set_family
-  # before_action :set_family, only: [:index, :show, :new, :edit]
 
   # GET /pictures
   # GET /pictures.json

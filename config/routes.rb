@@ -21,6 +21,12 @@ Rails.application.routes.draw do
     end
 
     resources :pictures
+    resources :questions, only: [:index, :show, :create, :destroy] do
+      collection do
+        get :search
+      end
+      resources :question_stars, only: [:create, :destroy]
+    end
   end
 
   resources :family_relationships, only: [:create, :destroy]
@@ -28,6 +34,7 @@ Rails.application.routes.draw do
     resources :sns_comments, only: [:create, :destroy]
   end
   resources :family_post_stars, only: [:create, :destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

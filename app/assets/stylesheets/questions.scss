@@ -1,0 +1,22 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "color";
+
+#friendGeneralSwitchTabs{
+  display: -webkit-flex;
+  display: flex;
+  height: 5vh;
+  li{
+    width: 50%;
+    text-align: center;
+    margin-top: 1vh;
+  }
+  li:first-child{
+    border-right: $borderGray 1px solid;
+  }
+  li:hover{
+    background-color: $iconOrange;
+    opacity: 0.5;
+  }
+}

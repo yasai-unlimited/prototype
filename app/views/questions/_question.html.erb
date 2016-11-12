@@ -1,0 +1,33 @@
+<div id="question-<%= question.id %>">
+  <div class="question-questionName"><%= link_to question.title, family_question_path(question.family, question) %></div>
+  <div class="question-Content"><%= question.content %></div>
+  <div class="familyPost-images">
+    <% if question.question_images.present? %>
+        <% question.question_images.each do |i| %>
+            <ul>
+              <li><%= image_tag i.image.thumb.url %></li>
+            </ul>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="question-reactions">
+    <div class="questionStar">
+      <div id="questionStar-<%= question.id %>">
+        <% if current_family.question_stared?(question) %>
+            <%= render 'question_stars/question_unstar' , question: question %>
+        <% else %>
+            <%= render 'question_stars/question_star' , question: question %>
+        <% end %>
+      </div>
+      <div id="questionStarCount-<%= question.id %>"><%= question.question_stars.count %></div>
+    </div>
+  </div>
+
+  <div class="question-timestamp">
+    Posted <%= time_ago_in_words(question.created_at) %> ago.
+    <% if current_family == question.family %>
+        <%= link_to "delete", family_question_path(question.family, question), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+    <% end %>
+  </div>
+</div>
