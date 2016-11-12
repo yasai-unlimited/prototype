@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :sns_comments, only: [:create, :destroy]
   end
   resources :family_post_stars, only: [:create, :destroy]
-  resources :questions, only: [:create, :destroy] do
+  resources :questions, only: [:index, :create, :destroy] do
     resources :question_stars, only: [:create, :destroy]
   end
 

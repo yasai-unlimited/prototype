@@ -52,6 +52,9 @@ gem "jquery-turbolinks"
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+# Use ransack for search Q&A
+gem 'ransack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

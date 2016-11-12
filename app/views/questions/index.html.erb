@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<%= search_form_for @q do |f| %>
+    <%# 関連の名前で検索 Product.carrier.name %>
+    <%= f.text_field :content_cont ,placeholder: '検索テキストを入力...', :class => 'form-control textField' %>
+    <br />
+
+    <%# 検索ボタン %>
+    <%= f.submit %>
+<% end %>
+<h1>Listing questions</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>質問内容</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @search_questions.each do |question| %>
+      <tr>
+        <td><%= question.content %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

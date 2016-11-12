@@ -1,5 +1,15 @@
 <% if user_signed_in? %>
     <% if current_user.has_family? %>
+        <%= search_form_for @q, url: questions_path do |f| %>
+            <%# 関連の名前で検索 Product.carrier.name %>
+            <%= f.label :content, "質問内容" %>
+            <%= f.search_field :content %>
+            <br />
+
+            <%# 検索ボタン %>
+            <%= f.submit %>
+        <% end %>
+
         <div style="height: 40px; background: #666666; position: relative;">
           <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
             +

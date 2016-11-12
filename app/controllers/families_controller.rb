@@ -75,6 +75,9 @@ class FamiliesController < ApplicationController
     @question = my_family.questions.build
     # @sns_comment = my_family.sns_comments.build
     @questions = my_family.questions.order(created_at: :desc).page(params[:page])
+
+    @q        = Question.search(params[:q])
+    @search_questions = @q.result(distinct: true)
   end
 
   private
