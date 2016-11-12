@@ -6,6 +6,7 @@
   position: fixed;
   top: 2vh;
   right: 2vw;
+  z-index: 10000;
   i{
     color: $iconOrange;
   }
@@ -54,6 +55,9 @@
     left: 0;
     bottom: 0;
   }
+}
+#familyPostComment{
+  z-index: 10001;
 }
 #familyPostComment input{
   position: absolute;
