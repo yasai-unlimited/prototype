@@ -1,0 +1,2 @@
+module QuestionStarsHelper
+end

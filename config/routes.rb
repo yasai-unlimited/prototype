@@ -18,7 +18,10 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       get :timeline
+      get :qa
     end
+
+    resources :pictures
   end
 
   resources :family_relationships, only: [:create, :destroy]
@@ -26,6 +29,9 @@ Rails.application.routes.draw do
     resources :sns_comments, only: [:create, :destroy]
   end
   resources :family_post_stars, only: [:create, :destroy]
+  resources :questions, only: [:create, :destroy] do
+    resources :question_stars, only: [:create, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

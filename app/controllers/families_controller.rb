@@ -25,9 +25,10 @@ class FamiliesController < ApplicationController
   # POST /families.json
   def create
     @family = Family.new
-
     respond_to do |format|
       if @family.save
+        @album = @family.build_album
+        @album.save
         current_user.update(family_id: @family.id)
         format.html { redirect_to @family, notice: 'Family was successfully created.' }
         format.json { render :show, status: :created, location: @family }
@@ -66,8 +67,14 @@ class FamiliesController < ApplicationController
     my_family = current_family
     @family_post = my_family.family_posts.build
     @sns_comment = my_family.sns_comments.build(user_id: current_user.id)
-    logger.debug("sns_comment   : #{@sns_comment}")
     @family_posts = my_family.all_posts.order(created_at: :desc).page(params[:page])
+  end
+
+  def qa
+    my_family = current_family
+    @question = my_family.questions.build
+    # @sns_comment = my_family.sns_comments.build
+    @questions = my_family.questions.order(created_at: :desc).page(params[:page])
   end
 
   private
@@ -80,7 +87,7 @@ class FamiliesController < ApplicationController
     def family_params
       params.require(:family).permit(:name, :friend_open, :general_open, :icon, :coverimage, :description, :title)
     end
-
+    
     # # Need params when creating family
     # def family_params
     #   params.require(:family).permit(:name, :friend_open, :general_open, :icon, :coverimage, :description, :title)
