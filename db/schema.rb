@@ -21,15 +21,15 @@ ActiveRecord::Schema.define(version: 20161112045303) do
   end
 
   create_table "families", force: :cascade do |t|
-    t.string   "name",         default: "家族の名前",      null: false
-    t.boolean  "friend_open",  default: false,        null: false
-    t.boolean  "general_open", default: false,        null: false
+    t.string   "name"
+    t.boolean  "friend_open",  default: false, null: false
+    t.boolean  "general_open", default: false, null: false
     t.text     "icon"
     t.text     "coverimage"
-    t.text     "description",  default: "家族の一言説明文"
-    t.string   "title",        default: "家族ページのタイトル"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.text     "description"
+    t.string   "title"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "family_post_images", force: :cascade do |t|
