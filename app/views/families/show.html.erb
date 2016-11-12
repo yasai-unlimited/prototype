@@ -6,10 +6,22 @@
 
 <%# show family own posts if family visiting own family_page %>
 <% if current_family == @family %>
+    <div class="container homeLinks">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="linkModule bg-lightGreen"><%= link_to 'TL', timeline_family_path(current_family) %></div>
+          <div class="linkModule bg-lightOrange"><%= link_to 'なんか', timeline_family_path(current_family) %></div>
+        </div>
+        <div class="col-xs-6">
+          <div class="linkModule bg-lightBlue"><%= link_to 'カレンダー', family_calendar_path(current_family) %></div>
+          <div class="linkModule bg-lightRed"><%= link_to 'なんか', timeline_family_path(current_family) %></div>
+        </div>
+      </div>
+    </div>
     <nav>
       <ul>
-        <li class="bg-lightGreen"><%= link_to 'TL', timeline_family_path(current_family) %></li>
-        <li class="bg-lightOrange"><%= link_to 'カレンダー', family_calendar_path(current_family) %></li>
+        <li class="bg-lightGreen"></li>
+        <li class="bg-lightOrange"></li>
       </ul>
     </nav>
     <%= render('contents') %>

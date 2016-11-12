@@ -92,7 +92,7 @@
       padding: 5px 8px;
       color: $text-lightOrange;
 
-      &:hover {
+      &:hover, &:focus {
         background: $bg-mediumOrange;
         text-decoration: none;
         color: #ffffff;
@@ -110,7 +110,39 @@
   }
 }
 
+.homeLinks {
+  .linkModule {
+    margin: 10px 0;
+    height: 10vh;
+    border-radius: 2vh;
+    text-align: center;
+
+    a {
+      display: block;
+      line-height: 10vh;
+      cursor: pointer;
+
+    }
+  }
+}
+
 .text-lightOrange {
   color: $text-lightOrange;
 }
 
+
+.bg-lightGreen {
+  background: $bg-lightGreen;
+}
+
+.bg-lightBlue {
+  background: $bg-lightBlue;
+}
+
+.bg-lightOrange {
+  background: $bg-lightOrange;
+}
+
+.bg-lightRed {
+  background: $bg-lightRed;
+}
