@@ -2,11 +2,6 @@
 
 <% if user_signed_in? %>
     <% if current_user.has_family? %>
-      <!-- <div style="height: 40px; background: #666666; position: relative;">
-        <div style="position: absolute; right: 0; height: 20px; width: 20px; background: #89c145;">
-          +
-        </div>
-      </div> -->
       <div class="fontIcon">
         <ul>
           <a href="#"><i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i></a>
@@ -17,34 +12,26 @@
         <div class="modal-inner">
           <%= render('shared/family_post_form') %>
         </div>
-        <a href="#!" class="modal-close">&times;</a>
+        <!-- <a href="#!" class="modal-close">&times;</a> -->
       </div>
     <% end %>
 
-    <!--<nav>-->
-      <!--<ul id="friendGeneralSwitchTabs">-->
-        <!--<li id="friendSelectBtn">友達 | </li>-->
-        <!--<li id="generalSelectBtn">一般</li>-->
-      <!--</ul>-->
-    <!--</nav>-->
-
-    <div id="friendOrGeneralContents">
-      <div id="familyPostsView">
-        <% if @family_posts %>
-            <% @family_posts.each do |f_p| %>
-                <div class="familyPost">
-                  <% if f_p.general_open || (f_p.friend_open && current_family.has_family_relationship?(f_p.family)) || current_family == f_p.family %>
-                    <%= render 'family_posts/family_posts', family_post: f_p %>
-                  <% end %>
-                </div>
-            <% end %>
-            <%= paginate @family_posts %>
-
+<div id="friendOrGeneralContents">
+  <div id="familyPostsView">
+    <% if @family_posts %>
+        <% @family_posts.each do |f_p| %>
+            <div class="familyPost">
+              <% if f_p.general_open || (f_p.friend_open && current_family.has_family_relationship?(f_p.family)) || current_family == f_p.family %>
+                <%= render 'family_posts/family_posts', family_post: f_p %>
+              <% end %>
+            </div>
+        <% end %>
+        <%= paginate @family_posts %>
       <% end %>
-      </div>
-    </div>
+  </div>
 
-<% else %>
-    <p>ログインしてください。</p>
-    <%= link_to 'HOME', root_path %>
-<% end %>
+  <% else %>
+      <p>ログインしてください。</p>
+      <%= link_to 'HOME', root_path %>
+  <% end %>
+</div>
