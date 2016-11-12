@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
-<p><%= link_to '検索アイコン', search_family_questions_path(current_family) %></p>
+<%= search_form_for @q, url: family_questions_path(current_family) do |f| %>
+    <%# 関連の名前で検索 Product.carrier.name %>
+    <%= f.text_field :content_cont ,placeholder: '検索テキストを入力...', :class => 'form-control textField' %>
+    <br />
+
+    <%# 検索ボタン %>
+    <%= f.submit %>
+<% end %>
 
 <h1>Listing questions</h1>
 
@@ -27,5 +34,21 @@
     <h2>General</h2>
   </div>
 </div>
+
+<table>
+  <thead>
+  <tr>
+    <th>質問内容</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @search_questions.each do |question| %>
+      <tr>
+        <td><%= link_to question.content, family_question_path(current_family, question) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 
 
