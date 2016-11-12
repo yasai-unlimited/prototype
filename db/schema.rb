@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111091750) do
+ActiveRecord::Schema.define(version: 20161111093950) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(version: 20161111091750) do
   add_index "family_relationships", ["follow_id", "follower_id"], name: "index_family_relationships_on_follow_id_and_follower_id", unique: true
   add_index "family_relationships", ["follow_id"], name: "index_family_relationships_on_follow_id"
   add_index "family_relationships", ["follower_id"], name: "index_family_relationships_on_follower_id"
+
+  create_table "question_images", force: :cascade do |t|
+    t.integer  "question_id"
+    t.text     "image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "question_images", ["question_id"], name: "index_question_images_on_question_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
