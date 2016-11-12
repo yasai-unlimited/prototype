@@ -5,10 +5,10 @@
 
 .familyInfo-intro {
   position: relative;
-  height: 95vw;
+  height: 70vw;
 
   .familyInfo-images {
-    height: 75vw;
+    height: 50vw;
     .familyInfo-coverImage {
       height: 100%;
       overflow: hidden;
@@ -102,7 +102,7 @@
 }
 
 .familyInfo-textArea {
-  padding: 10px 15px;
+  padding: 0px 15px;
   color: $text-mediumGray;
 
   h2 {

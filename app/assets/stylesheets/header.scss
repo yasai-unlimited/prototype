@@ -9,6 +9,7 @@ header{
   left: 0;
   top: 0;
   background-color: $headerBg;
+  z-index: 9999;
   nav{
     height: 100%;
     ul{
@@ -44,4 +45,3 @@ main{
 #notice {
   margin: 0;
 }
-
