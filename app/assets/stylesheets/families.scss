@@ -1,3 +1,148 @@
-// Place all the styles related to the Families controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "color";
+
+
+.familyInfo-intro {
+  position: relative;
+  height: 95vw;
+
+  .familyInfo-images {
+    height: 75vw;
+    .familyInfo-coverImage {
+      height: 100%;
+      overflow: hidden;
+      background: $bg-lightBlue;
+      img {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+      }
+    }
+
+    .familyInfo-icon {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      height: 40vw;
+      width: 40vw;
+      overflow: hidden;
+      background: #ffffff;
+      border: #ffffff solid 2vw;
+      border-radius: 20vw;
+    }
+  }
+
+  .familyInfo-mamaPapa {
+    height: 20vw;
+    background: $bg-lightOrange;
+
+    .familyInfo-leftUserLink, .familyInfo-rightUserLink {
+      position: absolute;
+      height: inherit;
+      text-align: center;
+
+      a {
+        display: block;
+        width: 30vw;
+        height: inherit;
+        cursor: pointer;
+        line-height: 20vw;
+
+        &:hover {
+          background: $bg-mediumOrange;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .familyInfo-leftUserLink {
+      left: 0;
+    }
+
+    .familyInfo-rightUserLink {
+      right: 0;
+    }
+  }
+}
+
+.familyInfo-followFollower {
+  overflow: hidden;
+  padding: 10px;
+  ul {
+    margin: 0 0 0 20px;
+    li {
+      float: left;
+      padding-top: 5px;
+      margin-right: 5vw;
+      color: $text-lightGray;
+    }
+  }
+
+  .familyInfo-editBtn {
+    float: right;
+    border: $text-lightOrange solid 1px;
+    border-radius: 5px;
+    display: inline-block;
+
+    a {
+      display: block;
+      padding: 5px 8px;
+      color: $text-lightOrange;
+
+      &:hover, &:focus {
+        background: $bg-mediumOrange;
+        text-decoration: none;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.familyInfo-textArea {
+  padding: 10px 15px;
+  color: $text-mediumGray;
+
+  h2 {
+    font-weight: bold;
+  }
+}
+
+.homeLinks {
+  .linkModule {
+    margin: 10px 0;
+    height: 10vh;
+    border-radius: 2vh;
+    text-align: center;
+
+    a {
+      display: block;
+      line-height: 10vh;
+      cursor: pointer;
+
+    }
+  }
+}
+
+.text-lightOrange {
+  color: $text-lightOrange;
+}
+
+
+.bg-lightGreen {
+  background: $bg-lightGreen;
+}
+
+.bg-lightBlue {
+  background: $bg-lightBlue;
+}
+
+.bg-lightOrange {
+  background: $bg-lightOrange;
+}
+
+.bg-lightRed {
+  background: $bg-lightRed;
+}

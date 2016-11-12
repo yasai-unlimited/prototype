@@ -1,5 +1,5 @@
 <div id="question-<%= question.id %>">
-  <div class="question-questionName"><%= link_to question.title, question_path(question) %></div>
+  <div class="question-questionName"><%= link_to question.title, family_question_path(question.family, question) %></div>
   <div class="question-Content"><%= question.content %></div>
   <div class="familyPost-images">
     <% if question.question_images.present? %>
@@ -27,7 +27,7 @@
   <div class="question-timestamp">
     Posted <%= time_ago_in_words(question.created_at) %> ago.
     <% if current_family == question.family %>
-        <%= link_to "delete", question, method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+        <%= link_to "delete", family_question_path(question.family, question), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
     <% end %>
   </div>
 </div>

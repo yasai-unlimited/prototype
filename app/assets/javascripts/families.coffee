@@ -2,6 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
+  $('#familyInfo-icon').bind("load", ->
+    if $(this).width() >= $(this).height()
+      $('#familyInfo-icon').css('height', '100%')
+    else
+      $('#familyInfo-icon').css('width', '100%')
+  )
   $('#followBtn').hover(
     ->
       if $('#followBtn').hasClass('unfollow')

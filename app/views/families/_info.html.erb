@@ -1,7 +1,27 @@
-<div><%= image_tag @family.icon.thumb.url %></div>
-<div><%= image_tag @family.coverimage.thumb.url %></div>
-<h2><%= @family.name %></h2>
-<div>
-  <h3><%= @family.title %></h3>
-  <p><%= @family.description %></p>
+<div class="familyInfo-intro">
+  <div class="familyInfo-images">
+    <div class="familyInfo-coverImage"><%= image_tag @family.coverimage.thumb.url %></div>
+    <div class="familyInfo-icon">
+      <%= image_tag @family.icon.thumb.url, :id => "familyInfo-icon" %>
+    </div>
+  </div>
+  <div class="familyInfo-mamaPapa">
+    <div class="familyInfo-leftUserLink"><a href="#">mama</a></div>
+    <div class="familyInfo-rightUserLink"><a href="#">papa</a></div>
+  </div>
+</div>
+
+<div class="familyInfo-followFollower">
+  <ul>
+    <li><strong><%= @family.following_families.count %></strong>フォロー</li>
+    <li><strong><%= @family.follower_families.count %></strong>フォロワー</li>
+  </ul>
+  <% if current_family == @family %>
+    <p id="familyInfo-edit" class="familyInfo-editBtn"><%= link_to 'プロフィール変更', edit_family_path(@family) %></p>
+  <% end %>
+</div>
+<div class="familyInfo-textArea">
+  <h2 class="familyInfo-familyName"><%= @family.name %></h2>
+  <h3 class="familyInfo-familyTitle"><%= @family.title %></h3>
+  <p class="familyInfo-familyDescription"><%= @family.description %></p>
 </div>

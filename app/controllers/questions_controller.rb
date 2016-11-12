@@ -1,4 +1,16 @@
 class QuestionsController < ApplicationController
+  def index
+    my_family = current_family
+    @question = my_family.questions.build
+    # @sns_comment = my_family.sns_comments.build
+    @questions = my_family.all_questions.order(created_at: :desc).page(params[:page])
+  end
+
+  def show
+    @question = Question.find(params[:id])
+    @asked_family = Family.find(@question.family.id)
+  end
+
   def create
     @question = current_family.questions.build(question_params)
     if @question.save
@@ -20,6 +32,17 @@ class QuestionsController < ApplicationController
     @question.destroy
     flash[:success] = "投稿を削除しました。"
     redirect_to request.referrer || 'families/qa'
+  end
+
+  def search
+    @q = Question.ransack(params[:q])
+    if params[:q]
+      key_words = params[:q][:content_cont].split(/[\p{blank}\s]+/) # params[:q] = 'hello world ruby'
+      grouping_hash = key_words.reduce({}){|hash, word| hash.merge(word => { content_cont: word })}
+      @q = Question.ransack({ combinator: 'or', groupings: grouping_hash, s: 'content desc' })
+    end
+
+    @search_questions = @q.result
   end
 
   private
