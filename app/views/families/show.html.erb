@@ -8,8 +8,8 @@
 <% if current_family == @family %>
     <nav>
       <ul>
-        <li><%= link_to 'TL', timeline_family_path(current_family) %></li>
-        <li><%= link_to 'カレンダー', family_calendar_path(current_family) %></li>
+        <li class="bg-lightGreen"><%= link_to 'TL', timeline_family_path(current_family) %></li>
+        <li class="bg-lightOrange"><%= link_to 'カレンダー', family_calendar_path(current_family) %></li>
       </ul>
     </nav>
     <%= render('contents') %>
