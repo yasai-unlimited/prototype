@@ -96,7 +96,7 @@ class Family < ActiveRecord::Base
 
   has_many :questions, class_name: Question, foreign_key: 'family_id', dependent: :destroy
 
-  has_many :question_stars, dependent: :destroy, foreign_key: 'family_id'
+  has_many :question_stars, class_name: QuestionStar, dependent: :destroy, foreign_key: 'family_id'
   has_many :stared_questions, through: :question_stars, source: :question
 
   def question_star(question)

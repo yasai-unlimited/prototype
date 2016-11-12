@@ -1,0 +1,5 @@
+<%= link_to "消すよ！" , question_question_star_path(question, question_id: question.id),
+            :class => "questionPostStar",
+            :id => "questionStarBtn-#{question.id}",
+            :remote => true,
+            :method => :delete %>
