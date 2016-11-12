@@ -1,0 +1,9 @@
+$('#questionStarBtn-<%= @question.id %>').addClass("disabled");
+var speed = 1000;
+var questionStar = function() {
+  var questionStarCount = $('#questionStarCount-<%= @question.id %>');
+  $('#questionStar-<%= @question.id %>').html("<%= escape_javascript(render('question_stars/question_unstar', { question: @question })) %>");
+  questionStarCount.html(<%= @question_stars_count %>);
+  $('#questionStarBtn-<%= @question.id %>').removeClass("disabled");
+};
+setTimeout(questionStar, speed);

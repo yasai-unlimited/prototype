@@ -96,4 +96,23 @@ class Family < ActiveRecord::Base
     sns_comment = sns_comments.find_by(family_post_id: family_post.id, user_id: current_user.id)
     sns_comment.destroy if sns_comment
   end
+
+
+  has_many :questions, class_name: Question, foreign_key: 'family_id', dependent: :destroy
+
+  has_many :question_stars, class_name: QuestionStar, dependent: :destroy, foreign_key: 'family_id'
+  has_many :stared_questions, through: :question_stars, source: :question
+
+  def question_star(question)
+    question_stars.find_or_create_by(question_id: question.id)
+  end
+
+  def question_unstar(question)
+    question = question_stars.find_by(question_id: question.id)
+    question.destroy if question
+  end
+
+  def question_stared?(question)
+    stared_questions.include?(question)
+  end
 end
