@@ -1,5 +1,13 @@
 <div id="familyPost-<%= family_post.id %>">
-  <div class="familyPost-familyName"><%= link_to family_post.family.name, family_path(family_post.family) %></div>
+  <div class="familyPost-familyName">
+    <div>
+      <%= link_to image_tag(family_post.family.icon.thumb.url), family_path(family_post.family), class: "familyIcon" %>
+    </div>
+    <div>
+      <%= link_to family_post.family.name, family_path(family_post.family), class: "familyName" %>
+      <small><br><%= family_post.created_at.to_s(:datetime) %></small>
+    </div>
+  </div>
   <div class="familyPost-Content"><%= family_post.content %></div>
   <div class="familyPost-images">
     <% if family_post.family_post_images.present? %>
