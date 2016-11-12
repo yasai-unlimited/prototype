@@ -6,24 +6,28 @@
     <div class="field">
       <%= f.text_area :content, placeholder: "いまどうしてる？" %>
     </div>
-    <ul class="postForm">
-      <div class="form-group">
-        <%= f.file_field :images, :name => 'images[]', multiple: true %>
+    <div class="post">
+      <div>
+        <ul class="postForm">
+          <div class="form-group">
+            <%= f.file_field :images, :name => 'images[]', multiple: true %>
+          </div>
+          <li class="field">
+            <%= f.label :friend %>
+            <%= f.check_box :friend_open %>
+          </li>
+          <li class="field">
+            <%= f.label :general %>
+            <%= f.check_box :general_open %>
+          </li>
+          <li class="field">
+            <%= f.hidden_field :family_id, value: current_family.id %>
+          </li>
+        </ul>
       </div>
-      <li class="field">
-        <%= f.label :friend %>
-        <%= f.check_box :friend_open %>
-      </li>
-      <li class="field">
-        <%= f.label :general %>
-        <%= f.check_box :general_open %>
-      </li>
-      <li class="field">
-        <%= f.hidden_field :family_id, value: current_family.id %>
-      </li>
-      <li>
-        <%= f.submit "Post", class: "btn btn-primary" %>
-      </li>
-    </ul>
+      <div>
+        <%= f.submit "投稿", class: "btn btn-primary" %>
+      </div>
+    </div>
     <%= image_tag("key.png", :class => "keyboard") %>
 <% end %>

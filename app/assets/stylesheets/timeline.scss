@@ -22,7 +22,7 @@
 
 #family_post_content{
   width: 100%;
-  height: 60vh;
+  height: 53vh;
 }
 
 .new_family_post{
@@ -33,6 +33,15 @@
       font-weight: 1px;
       -webkit-text-stroke: 1px;
     }
+  }
+  .post{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content:         space-between;
+    width: 95%;
+    height: 40px;
+    margin: 0 auto;
   }
   .postForm{
     display: -webkit-flex;
@@ -56,6 +65,8 @@
     opacity: 0;
     -webkit-appearance: none;
     appearance: none;
+    width: 100%;
+    height: 100%;
   }
 }
 
