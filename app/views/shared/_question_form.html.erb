@@ -4,6 +4,9 @@
       <%= link_to(content_tag(:i, '', class: 'fa fa-times fa-2x'), family_questions_path(current_family)) %>
     </div>
     <div class="field">
+      <%= f.text_field :title, placeholder: "タイトル" %>
+    </div>
+    <div class="field">
       <%= f.text_area :content, placeholder: "質問内容を入力してください。" %>
     </div>
     <div class="post">
