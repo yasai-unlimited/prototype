@@ -26,15 +26,14 @@
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   </div>
+  <div class="actions">
+    <%= f.hidden_field :family_id, :value => @family.id %>
+    <%= f.submit %>
+  </div>
   <div class="field">
     <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
     <% if @picture.persisted? && @picture.image? %>
       <%= link_to 'Destroy', family_picture_path(@family, @picture), method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-  </div>
-
-  <div class="actions">
-    <%= f.hidden_field :family_id, :value => @family.id %>
-    <%= f.submit %>
   </div>
 <% end %>
