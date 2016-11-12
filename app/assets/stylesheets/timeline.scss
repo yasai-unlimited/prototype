@@ -34,12 +34,34 @@
       -webkit-text-stroke: 1px;
     }
   }
+  .postForm{
+    display: -webkit-flex;
+    display: flex;
+    .field{
+      height: 40px;
+    }
+  }
+  .keyboard{
+    width: 100%;
+  }
+}
+
+.form-group{
+  background-image: image-url("cameraIcon.png");
+  background-repeat: no-repeat;
+  background-size: 40px auto;
+  height: 40px;
+  width: 40px;
+  input[type="file"]{
+    opacity: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
 }
 
 .modal-window {
 -webkit-transform: translate(0, 100%);
 -moz-transform: translate(0, 100%);
--o-transform: translate(0, 100%);
 -ms-transform: translate(0, 100%);
 transform: translate(0, 100%);
 -webkit-transform: translate3d(0, 100%, 0);
