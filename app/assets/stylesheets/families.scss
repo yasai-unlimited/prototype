@@ -32,6 +32,16 @@
       background: #ffffff;
       border: #ffffff solid 2vw;
       border-radius: 20vw;
+      z-index: 9999;
+
+      img {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+      }
     }
   }
 
