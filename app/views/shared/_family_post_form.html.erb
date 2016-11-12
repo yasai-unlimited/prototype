@@ -1,22 +1,33 @@
 <%= form_for(@family_post, url: family_posts_path) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-    <div class="field">
-      <%= f.text_area :content, placeholder: "投稿するテキストを入力できます" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :images %>
-      <%= f.file_field :images, :name => 'images[]', multiple: true %>
+    <div class="closeIcon">
+      <%= link_to(content_tag(:i, '', class: 'fa fa-times fa-2x'), timeline_family_path(current_family)) %>
     </div>
     <div class="field">
-      <%= f.label :friend_open %><br>
-      <%= f.check_box :friend_open %>
+      <%= f.text_area :content, placeholder: "いまどうしてる？" %>
     </div>
-    <div class="field">
-      <%= f.label :general_open %><br>
-      <%= f.check_box :general_open %>
+    <div class="post">
+      <div>
+        <ul class="postForm">
+          <div class="form-group">
+            <%= f.file_field :images, :name => 'images[]', multiple: true %>
+          </div>
+          <li class="field">
+            <%= f.label :friend %>
+            <%= f.check_box :friend_open %>
+          </li>
+          <li class="field">
+            <%= f.label :general %>
+            <%= f.check_box :general_open %>
+          </li>
+          <li class="field">
+            <%= f.hidden_field :family_id, value: current_family.id %>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <%= f.submit "投稿", class: "btn btn-primary" %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.hidden_field :family_id, value: current_family.id %>
-    </div>
-    <%= f.submit "Post", class: "btn btn-primary" %>
+    <%= image_tag("key.png", :class => "keyboard") %>
 <% end %>

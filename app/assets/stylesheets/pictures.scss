@@ -1,6 +1,20 @@
 // Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-td img{
-  width: 300px;
+
+ul.album{
+  li{
+    display: inline-block;
+    width: 24vw;
+    height: 24vw;
+    margin: 1vw 0;
+    a{
+      width: 100%;
+      height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
