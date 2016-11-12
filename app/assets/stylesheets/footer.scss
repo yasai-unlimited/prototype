@@ -8,18 +8,19 @@ footer{
   position: fixed;
   left: 0;
   bottom: 0;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content:         center;
-  -webkit-align-items: center;
-  align-items:         center;
   background-color: $footerBg;
   nav{
     ul{
+      margin-top: 2vh;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content:         center;
+      -webkit-align-items: center;
+      align-items:         center;
       li{
         display: inline-block;
-        width: 19vw;
+        width: 20vw;
         text-align: center;
       }
     }
