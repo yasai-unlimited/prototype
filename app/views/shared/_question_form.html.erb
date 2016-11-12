@@ -1,23 +1,34 @@
 <%= form_for(@question, url: family_questions_path(current_family)) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
+    <div class="closeIcon">
+      <%= link_to(content_tag(:i, '', class: 'fa fa-times fa-2x'), family_questions_path(current_family)) %>
+    </div>
     <div class="field">
       <%= f.text_area :content, placeholder: "質問内容を入力してください。" %>
     </div>
-    <div class="form-group">
-      <%= f.label :images %>
-      <%= f.file_field :images, :name => 'images[]', multiple: true %>
+    <div class="post">
+      <div>
+        <ul class="postForm">
+          <li class="form-group">
+            <%= f.file_field :images, :name => 'images[]', multiple: true %>
+          </li>
+          <li class="field">
+            <%= f.label :friend_open %><br>
+            <%= f.check_box :friend_open %>
+          </li>
+          <li class="field">
+            <%= f.label :general_open %><br>
+            <%= f.check_box :general_open %>
+          </li>
+          <li class="field">
+            <%= f.label :family_open %><br>
+            <%= f.check_box :family_open %>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <%= f.submit "Post", class: "btn btn-primary" %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :friend_open %><br>
-      <%= f.check_box :friend_open %>
-    </div>
-    <div class="field">
-      <%= f.label :general_open %><br>
-      <%= f.check_box :general_open %>
-    </div>
-    <div class="field">
-      <%= f.label :family_open %><br>
-      <%= f.check_box :family_open %>
-    </div>
-    <%= f.submit "Post", class: "btn btn-primary" %>
+    <%= image_tag("key.png", :class => "keyboard") %>
 <% end %>

@@ -6,7 +6,7 @@
       <i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i>
     <% end %>
     <!-- <a href="#"><i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i></a> -->
-    <a href="#"><i class="fa fa-pencil-square-o fa-fw fa-2x" aria-hidden="true"></i></a>
+    <a href="#questionPostModal"><i class="fa fa-pencil-square-o fa-fw fa-2x" aria-hidden="true"></i></a>
   </ul>
 </div>
 <!-- <p><%= link_to '検索アイコン', search_family_questions_path(current_family) %></p> -->
@@ -17,6 +17,12 @@
     <li id="generalSelectBtn">一般</li>
   </ul>
 </nav>
+
+<div id="questionPostModal" class="modal-window">
+  <div class="modal-inner">
+    <%= render('shared/question_form') %>
+  </div>
+</div>
 
 <div id="friendOrGeneralContents">
   <div id="friendContents">
