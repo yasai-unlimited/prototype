@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<p><%= link_to '検索アイコン', search_family_questions_path(current_family) %></p>
+
+<h1>Listing questions</h1>
+
+<nav>
+  <ul id="friendGeneralSwitchTabs">
+    <li id="friendSelectBtn">友達 | </li>
+    <li id="generalSelectBtn">一般</li>
+  </ul>
+</nav>
+
+<div id="friendOrGeneralContents">
+  <div id="friendContents">
+    <h2>Friend</h2>
+    <div id="familyPostsView">
+      <% if @questions %>
+          <% @questions.each do |q| %>
+              <div class="familyPost">
+                  <% if (q.friend_open && current_family.has_family_relationship?(q.family)) || current_family == q.family %>
+                      <%= render 'questions/question', question: q %>
+                  <% end %>
+              </div>
+          <% end %>
+          <%= paginate @questions %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="generalContents">
+    <h2>General</h2>
+    <% if @questions %>
+        <% @questions.each do |q| %>
+            <div class="familyPost">
+              <% if q.general_open %>
+                  <%= render 'questions/question', question: q %>
+              <% end %>
+            </div>
+        <% end %>
+        <%= paginate @questions %>
+    <% end %>
+  </div>
+</div>
+
+

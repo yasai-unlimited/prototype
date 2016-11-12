@@ -1,4 +1,4 @@
-<%= form_for(@question, url: questions_path) do |f| %>
+<%= form_for(@question, url: family_questions_path(current_family)) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
       <%= f.text_area :content, placeholder: "質問内容を入力してください。" %>

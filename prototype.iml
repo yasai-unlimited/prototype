@@ -564,6 +564,17 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="polyamorous (vbundled(1.3.1), /Users/keitamiya/.go/src/github.com/yasai-unlimited/prototype/vendor/bundle/ruby/2.3.0/gems/polyamorous-1.3.1) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/polyamorous-1.3.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/polyamorous-1.3.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rack (vbundled(1.6.5), /Users/keitamiya/.go/src/github.com/yasai-unlimited/prototype/vendor/bundle/ruby/2.3.0/gems/rack-1.6.5) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/rack-1.6.5/bin" />
@@ -660,6 +671,17 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/rake-11.3.0/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/rake-11.3.0/exe" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/rake-11.3.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ransack (vbundled(1.8.2), /Users/keitamiya/.go/src/github.com/yasai-unlimited/prototype/vendor/bundle/ruby/2.3.0/gems/ransack-1.8.2) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/ransack-1.8.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/ransack-1.8.2/lib" />
         </SOURCES>
       </library>
     </orderEntry>

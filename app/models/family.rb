@@ -115,4 +115,12 @@ class Family < ActiveRecord::Base
   def question_stared?(question)
     stared_questions.include?(question)
   end
+
+  def all_questions
+    all_questions = questions
+    following_families.each do |f|
+      all_questions.push(f.questions)
+    end
+    all_questions
+  end
 end
