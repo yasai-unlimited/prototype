@@ -10,8 +10,9 @@ footer{
   bottom: 0;
   background-color: $footerBg;
   nav{
+    height: 100%;
     ul{
-      margin-top: 2vh;
+      height: 100%;
       display: -webkit-flex;
       display: flex;
       -webkit-justify-content: center;
