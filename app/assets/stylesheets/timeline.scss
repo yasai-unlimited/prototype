@@ -21,11 +21,7 @@
 }
 
 // タイムライン投稿SCSS start
-#family_post_content{
-  width: 100%;
-  height: 53vh;
-}
-.new_family_post{
+.new_family_post, #familyPostComment{
   .closeIcon{
     text-align: right;
     i{
@@ -33,6 +29,10 @@
       font-weight: 1px;
       -webkit-text-stroke: 1px;
     }
+  }
+  textarea{
+    width: 100%;
+    height: 53vh;
   }
   .post{
     display: -webkit-flex;
@@ -50,9 +50,19 @@
       height: 40px;
     }
   }
+  form{
+    margin-bottom: 300px;
+  }
   .keyboard{
     width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
   }
+}
+#familyPostComment input{
+  position: absolute;
+  right: 3vw;
 }
 
 .form-group{
@@ -155,13 +165,14 @@ transition: opacity 0.4s;
 // タイムラインページSCSS start
 .familyPost{
   border-top: $borderGray 10px solid;
+  padding: 3vw;
   .familyPost-familyName{
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
     align-items:         center;
     div:first-child{
-      margin: 0 5px;
+      margin: 0 5px 0 0;
     }
     .familyIcon{
       img{
@@ -174,7 +185,20 @@ transition: opacity 0.4s;
     }
     .familyName{
       font-size: 25px;
-      margin-bottom: -5px;
+    }
+  }
+  .familyPost-Content{
+    margin: 1vh 0 2vh 0;
+  }
+  .familyPost-reactions{
+    border-top: $borderGray 1px solid;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content:         space-between;
+    div{
+      width: 30%;
+      text-align: center;
     }
   }
 }
