@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
   has_many :sns_commented_posts, through: :sns_comments, source: :family_post
 
   has_many :questions, class_name: Question, foreign_key: 'user_id', dependent: :destroy
+
+  has_many :answers, class_name: Answer, foreign_key: 'user_id', dependent: :destroy
+  has_many :answered_questions, through: :answers, source: :question
 end
