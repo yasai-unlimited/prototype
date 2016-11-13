@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20161112130502) do
   add_index "question_stars", ["question_id"], name: "index_question_stars_on_question_id"
 
   create_table "questions", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",        null: false
     t.text     "content",      null: false
     t.boolean  "general_open"
     t.boolean  "friend_open"
