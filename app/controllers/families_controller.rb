@@ -12,7 +12,7 @@ class FamiliesController < ApplicationController
   def show
     logged_in_user
     if user_signed_in?
-      set_family
+      set_current_family
     end
   end
 
@@ -81,11 +81,7 @@ class FamiliesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_family
-      if params[:id]
-        @family = Family.find(params[:id])
-      else
-        @family = Family.find(current_family)
-      end
+      @family = Family.find(params[:id])
     end
 
     def set_current_family
