@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       get :timeline
+      get :notification
     end
 
     resources :pictures
