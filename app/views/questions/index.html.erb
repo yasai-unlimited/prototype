@@ -23,7 +23,6 @@
 
 <div id="friendOrGeneralContents">
   <div id="friendContents">
-    <h2>Friend</h2>
     <div id="familyPostsView">
       <% if @questions %>
           <% @questions.each do |q| %>
@@ -39,8 +38,8 @@
   </div>
 
   <div id="generalContents">
-    <h2>General</h2>
-    <% if @questions %>
+    <%= image_tag("qa-general.png") %>
+    <!-- <% if @questions %>
         <% @questions.each do |q| %>
             <div class="familyPost">
               <% if q.general_open %>
@@ -49,6 +48,6 @@
             </div>
         <% end %>
         <%= paginate @questions %>
-    <% end %>
+    <% end %> -->
   </div>
 </div>
