@@ -123,4 +123,16 @@ class Family < ActiveRecord::Base
     end
     all_questions
   end
+
+  has_many :answers, class_name: Answer, foreign_key: 'family_id', dependent: :destroy
+  has_many :answered_questions, through: :answers, source: :question
+
+  def post_answer(question, content)
+    answers.find_or_create_by(question_id: question.id, user_id: current_user.id, content: content)
+  end
+
+  def delete_answer(question)
+    answers = answers.find_by(question_id: question.id, user_id: current_user.id)
+    answers.destroy if answers
+  end
 end

@@ -10,4 +10,11 @@ class Question < ActiveRecord::Base
   def self.ransackable_attributes auth_object = nil
     %w(content)
   end
+
+  has_many :answers, class_name: Answer, foreign_key: 'question_id', dependent: :destroy
+  has_many :answered_families, through: :answers, source: :family
+
+  def has_answer?
+    answered_families.count != 0
+  end
 end

@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
-      t.string :title
+      t.string :title, null: false
       t.text :content, null: false
       t.boolean :general_open
       t.boolean :friend_open

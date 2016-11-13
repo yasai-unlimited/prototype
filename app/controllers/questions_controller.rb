@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def index
     my_family = current_family
     @question = my_family.questions.build
-    # @sns_comment = my_family.sns_comments.build
+    @answer = my_family.answers.build
     @questions = my_family.all_questions.order(created_at: :desc).page(params[:page])
   end
 
@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_family.questions.build(question_params)
+    @question.user_id = current_user.id
     if @question.save
       if params[:images]
         params[:images].each { |image|
@@ -47,6 +48,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:family_id, :content, :stars_count, :friend_open, :general_open, :images => [])
+    params.require(:question).permit(:family_id, :user_id, :content, :title, :friend_open, :general_open, :family_open, :images => [])
   end
 end

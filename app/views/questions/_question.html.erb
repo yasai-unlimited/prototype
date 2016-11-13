@@ -22,6 +22,20 @@
       </div>
       <div id="questionStarCount-<%= question.id %>"><%= question.question_stars.count %></div>
     </div>
+
+    <div class="questionComment">
+      <%= render 'shared/answer_form', question: question %>
+      <% if question.has_answer? %>
+          <div class="questionCommentsCount">
+            <p>回答<%= question.answered_families.count %>件</p>
+          </div>
+          <div class="questionComments">
+            <% question.answers.each do |a| %>
+                <div><%= a.content %></div>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="question-timestamp">

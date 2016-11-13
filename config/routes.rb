@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         get :search
       end
       resources :question_stars, only: [:create, :destroy]
+      resources :answers, only: [:create, :destroy]
     end
   end
 
