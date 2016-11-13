@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'static_pages#home'
+  root to: 'families#show'
+  get :home, to: 'static_pages#home'
   devise_for :users, :controllers => {
       :registrations => 'users/registrations',
       :sessions => 'users/sessions'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       get :timeline
+      get :notification
     end
 
     resources :pictures
