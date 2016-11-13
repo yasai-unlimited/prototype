@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112045303) do
+ActiveRecord::Schema.define(version: 20161112130502) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -20,16 +20,30 @@ ActiveRecord::Schema.define(version: 20161112045303) do
     t.integer  "family_id"
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.integer  "family_id"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["family_id", "user_id", "question_id"], name: "index_answers_on_family_id_and_user_id_and_question_id"
+  add_index "answers", ["family_id"], name: "index_answers_on_family_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
   create_table "families", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "friend_open",  default: false, null: false
-    t.boolean  "general_open", default: false, null: false
+    t.string   "name",         default: "家族の名前",      null: false
+    t.boolean  "friend_open",  default: false,        null: false
+    t.boolean  "general_open", default: false,        null: false
     t.text     "icon"
     t.text     "coverimage"
-    t.text     "description"
-    t.string   "title"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "description",  default: "家族の一言説明文"
+    t.string   "title",        default: "家族ページのタイトル"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "family_post_images", force: :cascade do |t|
@@ -106,7 +120,7 @@ ActiveRecord::Schema.define(version: 20161112045303) do
   add_index "question_stars", ["question_id"], name: "index_question_stars_on_question_id"
 
   create_table "questions", force: :cascade do |t|
-    t.string   "title",        null: false
+    t.string   "title"
     t.text     "content",      null: false
     t.boolean  "general_open"
     t.boolean  "friend_open"
