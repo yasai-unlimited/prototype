@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: [:edit, :update, :destroy]
 
   # GET /families
   # GET /families.json
@@ -10,6 +10,10 @@ class FamiliesController < ApplicationController
   # GET /families/1
   # GET /families/1.json
   def show
+    logged_in_user
+    if user_signed_in?
+      set_current_family
+    end
   end
 
   # GET /families/new
@@ -74,6 +78,10 @@ class FamiliesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_family
       @family = Family.find(params[:id])
+    end
+
+    def set_current_family
+      @family = Family.find(current_family)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
