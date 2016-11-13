@@ -1,5 +1,14 @@
 <% provide(:title, "アルバム") %>
-<p id="notice"><%= notice %></p>
+
+<div class="fontIcon" id="fontIconFa3x">
+  <ul>
+    <li>
+      <%= link_to new_family_picture_path(@family) do %>
+        <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+      <% end %>
+    </li>
+  </ul>
+</div>
 
 <% unless @family.album.nil? %>
   <ul class="album">
@@ -20,5 +29,5 @@
 <% end %>
 
 <!-- <%= link_to 'リダイレクト', family_pictures_path(@family) %> | -->
-<%= link_to 'New Picture', new_family_picture_path(@family) %> |
+<!-- <%= link_to 'New Picture', new_family_picture_path(@family) %> | -->
 <!-- <%= link_to 'Back FamilyPage', family_path(@family) %> -->

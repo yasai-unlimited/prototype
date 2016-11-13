@@ -1,23 +1,24 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Q&A") %>
+
 <%= search_form_for @q, url: search_family_questions_path(current_family) do |f| %>
     <%# 関連の名前で検索 Product.carrier.name %>
-    <%= f.text_field :content_cont ,placeholder: '検索テキストを入力...', :class => 'form-control textField' %>
+    <%= f.text_field :content_cont, placeholder: '検索テキストを入力...', :class => 'form-control textField' %>
     <br />
 
     <%# 検索ボタン %>
-    <%= f.submit %>
+    <%= f.submit "検索", class: 'btn btn-primary' %>
 <% end %>
 
 <nav>
   <ul id="friendGeneralSwitchTabs">
-    <li id="friendSelectBtn">友達 | </li>
+    <li id="friendSelectBtn">友達</li>
     <li id="generalSelectBtn">一般</li>
   </ul>
 </nav>
 
 <div id="friendOrGeneralContents">
-  <h2>Friend</h2>
   <div id="familyPostsView">
+    <h2>Friend</h2>
     <% if @questions %>
         <% @questions.each do |q| %>
             <div class="familyPost">
@@ -48,5 +49,3 @@
   <% end %>
   </tbody>
 </table>
-
-

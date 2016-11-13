@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
-<p><%= link_to '検索アイコン', search_family_questions_path(current_family) %></p>
 
-<h1>Listing questions</h1>
+<div class="fontIcon">
+  <%= link_to search_family_questions_path(current_family) do %>
+    <i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i>
+  <% end %>
+  <!-- <a href="#"><i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i></a> -->
+  <a href="#questionPostModal"><i class="fa fa-pencil-square-o fa-fw fa-2x" aria-hidden="true"></i></a>
+</div>
 
 <nav>
   <ul id="friendGeneralSwitchTabs">
-    <li id="friendSelectBtn">友達 | </li>
+    <li id="friendSelectBtn">友達</li>
     <li id="generalSelectBtn">一般</li>
   </ul>
 </nav>
+
+<div id="questionPostModal" class="modal-window">
+  <div class="modal-inner">
+    <%= render('shared/question_form') %>
+  </div>
+</div>
 
 <div id="friendOrGeneralContents">
   <div id="friendContents">
@@ -41,5 +52,3 @@
     <% end %>
   </div>
 </div>
-
-

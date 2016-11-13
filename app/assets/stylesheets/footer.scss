@@ -23,6 +23,18 @@ footer{
         display: inline-block;
         width: 20vw;
         text-align: center;
+        a{
+          text-align: center;
+          img{
+            width: 5vh;
+            height: 5vh;
+            margin-top: 1vh;
+          }
+          p{
+            margin: 0;
+            font-size: 12px;
+          }
+        }
       }
     }
   }
