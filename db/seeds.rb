@@ -15,7 +15,6 @@ def food_image(num)
   File.open(File.join(Rails.root, "/app/assets/images/food/food#{num}.JPG"))
 end
 
-
 1.upto(9){ |i|
   @arr = ['田中家', '斎藤家', '民谷家', '小室家', '鈴木家', '砂糖家', '高橋家', '伊藤家', '渡辺家', '小林家', '中村家', '加藤家', '吉田家', '山田家', '佐々木家', '渡辺家', '山口家', '松本家']
 
@@ -30,6 +29,8 @@ end
   title = name + "のページ"
   description = title + "の説明分です！"
   Family.create(:name => name, :title => title, :description => description, :coverimage => cover_image(num), :icon => cover_image(iconNum))
+  # Album.find_by(family_id: %(#{i})).pictures.create(:image => cover_image(num))
+  Picture.create(album_id: Album.find_by(family_id: %(#{i})), :image => cover_image(num))
 }
 
 User.create(:email => 'test1@test.com', :password => 'password', :password_confirmation => 'password', :open_id => 'tanaka', :family_id => 1)
@@ -70,5 +71,12 @@ User.create(:email => 'test10@test.com', :password => 'password', :password_conf
   FamilyPost.create(family_id: %(#{i}), content: "初めて言葉を発しました！")
   FamilyPost.create(family_id: %(#{i}), content: "今日の晩御飯！！").family_post_images.create(family_post_id: 1, :image => food_image("1"))
   FamilyPost.create(family_id: %(#{i}), content: "今日のお昼御飯！！").family_post_images.create(family_post_id: 1, :image => food_image("2"))
+
+
+  if i < 10
+    num = "0#{i}"
+  else
+    num = i
+  end
 }
 
