@@ -6,6 +6,7 @@
   position: fixed;
   top: 2vh;
   right: 2vw;
+  z-index: 10000;
   i{
     color: $iconOrange;
   }
@@ -16,7 +17,10 @@
 }
 
 // タイムライン投稿SCSS start
-.new_family_post, #familyPostComment{
+.new_family_post,
+#familyPostComment,
+#questionPostModal{
+  z-index: 10001;
   .closeIcon{
     text-align: right;
     i{
@@ -46,7 +50,7 @@
     }
   }
   form{
-    margin-bottom: 300px;
+    margin-bottom: 250px;
   }
   .keyboard{
     width: 100%;

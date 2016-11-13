@@ -3,10 +3,8 @@
 <% if user_signed_in? %>
     <% if current_user.has_family? %>
       <div class="fontIcon">
-        <ul>
-          <a href="#"><i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i></a>
-          <a href="#familyPostModal"><i class="fa fa-pencil-square-o fa-fw fa-2x" aria-hidden="true"></i></a>
-        </ul>
+        <a href="#"><i class="fa fa-search fa-fw fa-2x" aria-hidden="true"></i></a>
+        <a href="#familyPostModal"><i class="fa fa-pencil-square-o fa-fw fa-2x" aria-hidden="true"></i></a>
       </div>
       <div id="familyPostModal" class="modal-window">
         <div class="modal-inner">
