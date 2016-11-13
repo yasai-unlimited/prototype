@@ -21,7 +21,6 @@ User.create(:email => 'test8@test.com', :password => 'password', :password_confi
 User.create(:email => 'test9@test.com', :password => 'password', :password_confirmation => 'password', :open_id => 'tester9', :family_id => 9)
 User.create(:email => 'test10@test.com', :password => 'password', :password_confirmation => 'password', :open_id => 'tester10', :family_id => 10)
 
-
 Question.create(family_id: 1, user_id: 1, title: "タイトル1タイトル1タイトル1タイトル1", content: "内容内容内容内容内容内容内容内容内容内容内容内容内容")
 Question.create(family_id: 1, user_id: 1, title: "唐揚げ", content: "晩御飯")
 Question.create(family_id: 1, user_id: 1, title: "納豆", content: "昼ごはん")
@@ -31,3 +30,57 @@ Question.create(family_id: 1, user_id: 1, title: "悩み", content: "晩御飯")
 Question.create(family_id: 1, user_id: 1, title: "成長", content: "身長")
 Question.create(family_id: 1, user_id: 1, title: "成長", content: "体重")
 Question.create(family_id: 1, user_id: 1, title: "適当", content: "あああああああ")
+
+Album.create(:family_id => 1)
+Album.create(:family_id => 2)
+Album.create(:family_id => 3)
+Album.create(:family_id => 4)
+
+#
+# p = "#{Rails.root}/db/img1.jpg"
+#
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 1,
+#   image: File.read(p)
+# )
+#
+# Picture.create(
+#   album_id: 2,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 2,
+#   image: File.read(p)
+# )
+# Picture.create(
+#   album_id: 2,
+#   image: File.read(p)
+# )
