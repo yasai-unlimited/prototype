@@ -74,6 +74,10 @@ class FamiliesController < ApplicationController
     @family_posts = my_family.all_posts.order(created_at: :desc).page(params[:page])
   end
 
+  def notification
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_family
