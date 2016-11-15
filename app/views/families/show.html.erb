@@ -35,13 +35,6 @@
             </div>
         <% end %>
     <%# in case family don't open to other users %>
-    <% else %>
-        <% if @family.friend_open %>
-            <p>友達限定です</p>
-        <% else %>
-            <p>公開されていないユーザーです。</p>
-        <% end %>
-        <p>ホームに戻りましょう！リダイレクトは後で実装</p>
-        <%= link_to "Home", root_path %>
+
     <% end %>
 <% end %>

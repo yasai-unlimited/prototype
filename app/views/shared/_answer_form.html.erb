@@ -1,7 +1,7 @@
 <%= form_for(@answer, url: family_question_answers_path(current_family, question)) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
-      <%= f.text_area :content, placeholder: "投稿する回答を入力できます" %>
+      <%= f.text_area :content, :class => 'answerField', placeholder: "投稿する回答を入力できます" %>
     </div>
     <div class="field">
       <%= f.hidden_field :question_id, value: question.id %>
