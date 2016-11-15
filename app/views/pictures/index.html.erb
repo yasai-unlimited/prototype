@@ -12,19 +12,41 @@
 
 <% unless @family.album.nil? %>
   <ul class="album">
-    <% @family.album.pictures.each do |picture| %>
-      <li>
-        <%= link_to family_picture_path(@family, picture) do %>
-          <%= image_tag picture.image.thumb.url %>
-        <% end %>
-      </li>
-    <% end %>
-    <!-- <% @family.album.pictures.each do |picture| %> -->
-    <!-- <li><%= picture.date %></li> -->
-    <!-- <li><%= link_to 'Show', family_picture_path(@family, picture) %></li> -->
-    <!-- <li><%= link_to 'Edit', edit_family_picture_path(@family, picture) %></li> -->
-    <!-- <li><%= link_to 'Destroy', family_picture_path(@family, picture), method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
-    <!-- <% end %>  -->
+    <li>
+      <a href="#"><%= image_tag 'cover_01.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_02.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_03.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_04.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_05.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_06.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_07.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_08.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_09.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_10.JPG' %></a>
+    </li>
+    <li>
+      <a href="#"><%= image_tag 'cover_11.JPG' %></a>
+    </li>
+
+
   </ul>
 <% end %>
 

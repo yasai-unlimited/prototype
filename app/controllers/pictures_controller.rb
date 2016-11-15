@@ -32,6 +32,10 @@ class PicturesController < ApplicationController
       if @picture.save
         # @album = @family.album.pictures.bulid
         # @album.save
+
+        logger.debug("kosakfodskof #{@family.album}")
+        logger.debug("ddddddd #{Album.find_by(family_id: @family.id)}")
+        logger.debug("ddddddd #{@family.id}")
         @family.album.pictures << @picture
         format.html { redirect_to [@family, @picture], notice: 'Picture was successfully created.', :flash => {:family_id => @family} }
         format.json { render :show, status: :created, location: @picture }

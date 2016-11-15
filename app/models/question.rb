@@ -8,7 +8,7 @@ class Question < ActiveRecord::Base
   has_many :question_star_families, through: :question_stars, source: :family
 
   def self.ransackable_attributes auth_object = nil
-    %w(content)
+    %w(title)
   end
 
   has_many :answers, class_name: Answer, foreign_key: 'question_id', dependent: :destroy

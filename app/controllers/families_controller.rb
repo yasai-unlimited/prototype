@@ -13,6 +13,8 @@ class FamiliesController < ApplicationController
     logged_in_user
     if user_signed_in?
       set_family
+
+      logger.debug("FamilyAll  #{Album.find_by(:family_id => 1).pictures}")
     end
   end
 

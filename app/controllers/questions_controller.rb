@@ -38,8 +38,8 @@ class QuestionsController < ApplicationController
   def search
     @q = Question.ransack(params[:q])
     if params[:q]
-      key_words = params[:q][:content_cont].split(/[\p{blank}\s]+/) # params[:q] = 'hello world ruby'
-      grouping_hash = key_words.reduce({}){|hash, word| hash.merge(word => { content_cont: word })}
+      key_words = params[:q][:title_cont].split(/[\p{blank}\s]+/) # params[:q] = 'hello world ruby'
+      grouping_hash = key_words.reduce({}){|hash, word| hash.merge(word => { title_cont: word })}
       @q = Question.ransack({ combinator: 'or', groupings: grouping_hash, s: 'content desc' })
     end
 

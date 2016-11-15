@@ -2,7 +2,7 @@
 
 <%= search_form_for @q, url: search_family_questions_path(current_family) do |f| %>
     <%# 関連の名前で検索 Product.carrier.name %>
-    <%= f.text_field :content_cont, placeholder: '検索テキストを入力...', :class => 'form-control textField' %>
+    <%= f.text_field :title_cont, placeholder: '検索テキストを入力...', :class => 'form-control textField' %>
     <br />
 
     <%# 検索ボタン %>
